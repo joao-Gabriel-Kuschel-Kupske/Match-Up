@@ -3,22 +3,22 @@
 Um projeto que almeja mudar a matemática para os baixinhos.
 Nosso intuito é a promoção de uma educação com qualidade para alunos do 4° e 5° ano EF, tanto através de aulas lúdicas, divertidas e, principalmente, acessíveis aos alunos.
 
-![MIT License](assets/Logo_Mit_License.png)
+![MIT License](match.up/static/assets/imagens/logo_Mit_License.png)
 
 ## 🖼️ Exibição
 
-![Site rodando](assets/Projeto_funcionando.png)
+![Site rodando](match.up/static/assets/imagens/site-rodando.png)
 
 ## ⚙ Orçamento e Pré-requisitos
 
-Para acessar nosso site, será necessário um navegador de WEB, nisso pesquise por "https://lllllllllllllllllllll.com".
+Para acessar nosso site, será necessário um navegador de WEB, nisso pesquise por "https://match-up.com".
 Saber mexer o básico nos aparelhos ou auxílio dos responsáveis.
 
 ### 🪙 Orçamento
 
-- Contrato anual da plataforma: R$XX,XX ;
-- Contrato semestral: R$XX,XX ;
-- Contrato mensal: R$XX,XX ;
+- Contrato anual da plataforma: R$249,99 ;
+- Contrato semestral: R$199,99 ;
+- Contrato mensal: R$49,99 ;
     Esteja atento às promoções periódicas - Venha fazer parte do Match-Up.
 
 ## 📦 O que nós oferecemos?
@@ -45,27 +45,53 @@ Nosso financiamento será proveniente de inscrições da plataforma, apoio dos i
 ## 👨‍💻 Estrutura do projeto
 
 Match-Up/
-├── X
-|    ├── X
-|    ├── X
-|    ├── X
-|    └── X
-├── X
-├── X
-├── X
-└── X
+├── match.up
+|    ├── static
+|    |    ├── assets
+|    |    |    └── imagens
+|    |    ├── aulas
+|    |    |    ├── divisão_euclidiana.pdf
+|    |    |    ├── introdução_a_geometria.pdf
+|    |    |    └── múltiplos_e_divisores.pdf
+|    |    └── css
+|    |         ├── stylecadastro.css
+|    |         ├── styledivisao.css
+|    |         ├── stylefracao.css
+|    |         ├── stylegeometria.css
+|    |         ├── styleindex.css
+|    |         ├── stylelogin.css
+|    |         ├── stylemultiplos_e_div.css
+|    |         ├── stylepagcursos.css
+|    |         └── styleperfil.css
+|    ├── templates
+|    |    ├── aula.html
+|    |    ├── cadastro.html
+|    |    ├── fracao.html
+|    |    ├── index.html
+|    |    ├── login.html
+|    |    ├── pagcursos.html
+|    |    └── perfil.html
+|    ├── app.py
+|    └── dados.csv
+├── venv
+|    ├─ Lib\site-packages
+|    ├─ Scripts
+|    ├─ .gitignore
+|    ├─ CACHEDIR.TAG
+|    └── pyvenv.cfg
+└── README.md
 
 ### Principais Arquivos
 
-X
+css - Estilização completa do site.
 
-X
+imagens/ - Armazenamento total das imagens.
 
-X
+app.py - O Backend de processamento no programa.
 
-X
+templates/ - A estruturação das páginas.
 
-X
+README.md - Responsável pela descrição do arquivo.
 
 ## Licença  
 

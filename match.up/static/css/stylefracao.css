@@ -50,6 +50,9 @@ header{
     gap: 20px;
     margin-top: 20px;
 }
+.title a {
+    text-decoration: none;
+}
 .discribe {
     display: flex;
     background-color: #eaf7ff;
