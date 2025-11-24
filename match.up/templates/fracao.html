@@ -9,11 +9,15 @@
     <body>
         <div id="borda">
             <header>
-                <img src="../static/assets/imagens/logop-pag-fracao.png" alt="logo-match-up" class="logo">
-                <div id="perfil">
-                    <img src="../static/assets/imagens/foto-perfil.png" alt="foto-perfil" class="ft-perfil">
-                    <h4>Me</h4>
-                </div>
+                <a href="{{ url_for('entrar') }}" class="btn1">
+                    <img src="../static/assets/imagens/logop-pag-fracao.png" alt="logo-match-up" class="logo">
+                </a>
+                <a href="{{ url_for('area_aluno') }}">
+                    <div id="perfil">
+                        <img src="../static/assets/imagens/foto-perfil.png" alt="foto-perfil" class="ft-perfil">
+                        <h4>Me</h4>
+                    </div>
+                </a>
             </header>
 
             <section class="title">

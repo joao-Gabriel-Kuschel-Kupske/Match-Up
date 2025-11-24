@@ -12,10 +12,10 @@ html {
     font-family: "Inknut Antiqua", serif;
 }
 :root {
-    --cor-borda: #26c000;
+    --cor-borda: #d8cc1e;
 }
 body {
-    background-color: #7fff65;
+    background-color: #fdff72;
 }
 #borda {
     border-left: 4px solid var(--cor-borda);
@@ -87,7 +87,7 @@ header a {
     border-radius: 50%;     
     border: none;  
     margin: 0px 15px;         
-    background-color: #4c64ee; 
+    background-color: #4c64ee;
     color: #ffffff;           
     font-size: 24px;        
     cursor: pointer;

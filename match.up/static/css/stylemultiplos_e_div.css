@@ -32,6 +32,9 @@ header{
     width: 230px;
     padding: 15px;
 }
+header a {
+    text-decoration: none;
+}
 #perfil {
     display: flex;
     flex-direction: column;
@@ -40,6 +43,7 @@ header{
 }
 #perfil h4 {
     font-family: "Indie Flower", sans-serif;
+    color: #000000;
     font-weight: 100;
 }
 .ft-perfil {
@@ -83,8 +87,8 @@ header{
     border-radius: 50%;     
     border: none;  
     margin: 0px 15px;         
-    background-color: #ff9b65; 
-    color: #6691ff;           
+    background-color: #4c64ee; 
+    color: #ffee00;           
     font-size: 24px;        
     cursor: pointer;
     display: flex;
@@ -94,7 +98,7 @@ header{
 }
 
 .round-btn:hover {
-    background-color: #ff894a;
+    background-color: #201df0;
     transform: scale(1.05);
 }
 
