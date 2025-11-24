@@ -22,13 +22,11 @@
           <button class="Fração">Botão</button>
     </section>
  <!-- exibir nomes das aulas já com a rota para a aula -->
-        {% for materia in aulas %}
-             <a href="{{ url_for('aula', nome=materia) }}">
-                <div class = "logo">
-                    <img src="{{ url_for('static', filename='assets/imagens/logo' ~ materia ~ '.png') }}" alt="logo sistema">
-                </div>
-                <p>{{materia.title() }}</p>
+        {% for nome in aulas %}
+            <a href="/aula/{{ nome }}" target="_blank">
+                {{ nome }}
             </a>
+
         {% endfor %}
     </div>
 </body>
