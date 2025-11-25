@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_file
 import csv
 import os
 from datetime import datetime
@@ -116,12 +116,10 @@ def area_aluno():
    return render_template("perfil.html")
 
 #------PDF aulas -------
-@app.route('/aulas/<nome>')
-def aula(nome):
-    pdf_filename= f"{nome}.pdf"
-    pdf_url = url_for('static', filename=f'aulas/{pdf_filename}')
-    return render_template('aula.html', pdf_filename=pdf_filename,
-        pdf_url=pdf_url)
+@app.route('/aula/<nome>')
+def abrir_aula(nome):
+    pdf_path = os.path.join("static", "aulas", nome + ".pdf")
+    return send_file(pdf_path, mimetype='application/pdf', as_attachment=False)
 
 @app.route("/entrar")
 def pagcursos():
