@@ -40,6 +40,41 @@ def formulario():
    """Exibe o formulário de CADASTRO (cadastro.html)."""
    return render_template('cadastro.html')
 
+@app.route('/formulario_login')
+def formulario_login():
+   """Exibe o formulário de LOGIN (login.html)."""
+   return render_template('login.html')
+
+@app.route('/fração-class')
+def aula_fra():
+   """Exibe a aula (fracao.html)."""
+   return render_template('fracao.html')
+
+@app.route('/múltiplos-e-divisores-class')
+def aula_mult_e_div():
+   """Exibe a aula (mult-e-div.html)."""
+   return render_template('mult-e-div.html')
+
+@app.route('/equação-de-1°-grau-class')
+def aula_1_equa():
+   """Exibe a aula (1equacao.html)."""
+   return render_template('1equacao.html')
+
+@app.route('/ângulos-class')
+def aula_ang():
+   """Exibe a aula (angulos.html)."""
+   return render_template('angulos.html')
+
+@app.route('/geometria-class')
+def aula_geom():
+   """Exibe a aula (geometria.html)."""
+   return render_template('geometria.html')
+
+@app.route('/sistema-numérico-class')
+def aula_sisenum():
+   """Exibe a aula (sisenum.html)."""
+   return render_template('sisenum.html')
+
 
 # --- Rota para SALVAR os dados do cadastro ---
 # CORREÇÃO 3:

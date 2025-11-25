@@ -95,9 +95,11 @@
                   <button type="submit" class="btn-submit">Entrar</button>
                </form>
             
-               <button class="btn-pg-cadastro" onclick="window.location.href='Cadastro.html'">
-                  Cadastre-se
-               </button>
+               <a href="{{ url_for('formulario') }}">
+                  <button class="btn-pg-cadastro">
+                     Cadastre-se
+                  </button>
+               </a>
                
             </div>
          </div>

@@ -54,23 +54,30 @@ Match-Up/
 |    |    |    ├── introdução_a_geometria.pdf
 |    |    |    └── múltiplos_e_divisores.pdf
 |    |    └── css
+|    |         ├── style1equacao.css
+|    |         ├── styleangulos.css
 |    |         ├── stylecadastro.css
-|    |         ├── styledivisao.css
 |    |         ├── stylefracao.css
 |    |         ├── stylegeometria.css
 |    |         ├── styleindex.css
 |    |         ├── stylelogin.css
 |    |         ├── stylemultiplos_e_div.css
 |    |         ├── stylepagcursos.css
-|    |         └── styleperfil.css
+|    |         ├── styleperfil.css
+|    |         └── stylesisenum.css
 |    ├── templates
+|    |    ├── 1equacao.html
+|    |    ├── angulos.html
 |    |    ├── aula.html
 |    |    ├── cadastro.html
 |    |    ├── fracao.html
+|    |    ├── geometria.html
 |    |    ├── index.html
 |    |    ├── login.html
+|    |    ├── mult-e-div.html
 |    |    ├── pagcursos.html
-|    |    └── perfil.html
+|    |    ├── perfil.html
+|    |    └── sisenum.html
 |    ├── app.py
 |    └── dados.csv
 ├── venv
