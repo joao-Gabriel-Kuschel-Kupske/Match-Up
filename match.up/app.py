@@ -81,7 +81,7 @@ def inicio():
 
 @app.route('/entrar')
 def entrar():
-   return redirect(url_for('formulario_login'))
+   return redirect(url_for('pagcursos'))
 
 @app.route('/formulario_cadastro')
 def formulario():
