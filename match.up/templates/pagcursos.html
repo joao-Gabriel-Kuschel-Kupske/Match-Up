@@ -19,10 +19,10 @@
 </a>
 
 <section class="cursos">
-          <button class="Fração">Fração</button>
-           <button class="Fração">Multiplos e dividores</button>
-            <button class="Fração">Geometria inicial</button>
-             <button class="Fração">Divisão euclidiana</button>
+          <button class="entrada">Fração</button>
+           <button class="entrada">Multiplos e dividores</button>
+            <button class="entrada">Geometria inicial</button>
+             <button class="entrada">Divisão euclidiana</button>
  </section>
 
 
@@ -36,6 +36,19 @@
 
         {% endfor %}
     </div>
-</body>
+
+    <header class="cima">
+      <a href="#">
+        <div class="logo">
+          <img src="../static/assets/imagens/logo.png" alt="logo" class="logo">
+        </div>
+      </a>
+      <div class="button">
+        <!-- CORREÇÃO: Usa 'formulario', que é a função que renderiza cadastro.html -->
+        <a href="{{ url_for('formulario') }}" class="criar-link" id="btn-cad-hd"><i>Cadastrar</i></a>
+        <a href="{{ url_for('formulario') }}" class="criar-link" id="btn-log-hd"><i>Login</i></a>
+      </div>
+    </header>
+
 </html>
 
