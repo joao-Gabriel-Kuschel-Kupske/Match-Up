@@ -162,3 +162,15 @@ footer {
 footer p {
     margin: 5px 0px;
 }
+.pdf-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.pdf-full {
+    width: 90%;
+    height: 200vh;
+    border: none !important;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}

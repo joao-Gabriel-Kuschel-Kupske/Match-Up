@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
-   <head>
-      <meta charset="UTF-8">
-      <title>Login</title>
-      <link rel="stylesheet" href="../static/css/stylelogin.css">
-   </head>
-   <body>
-      <div class="container">
-         <header>
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Match-Up</title>
+    <link rel="stylesheet" href="../static/css/stylelogin.css">
+</head>
+<body>
+    <div class="container">
+        <header>
             <img src="../static/assets/imagens/logo.png" alt="Logo Match-Up">
-         </header>
+        </header>
 
-         <div class="bolhas">
+        <div class="bolhas">
             <span style="--i:7"></span>
             <span style="--i:21"></span>
             <span style="--i:14"></span>
@@ -73,36 +72,33 @@
             <span style="--i:11"></span>
             <span style="--i:23"></span>
             <span style="--i:9"></span>
-         </div>
+        </div>
 
-         <div class="centralize">
+        <div class="centralize">
             <div class="cont-info">
-               <h2>VAMOS COMEÇAR!</h2>
+                <h2>VAMOS COMEÇAR!</h2>
             
-               <!-- Ação CORRETA: Envia dados para a rota POST /salvar_dados -->
-               <form method="post" action="/salvar_dados">
-                  
-                  <!-- <label for="email"></label><br> -->
-                  <!-- name="email" é usado no Python para pegar o valor -->
-                  <input type="email" id="email" name="email" placeholder="   Email" required><br><br>
-                  
-                  <!-- <label for="senha"></label><br> -->
-                  <!-- name="senha" é usado no Python para pegar o valor -->
-                  <input type="password" id="senha" name="senha" placeholder="   Senha" required><br><br>
+                {% if erro %}
+                <p style="color: red; font-weight: bold; margin-bottom: 15px;">{{ erro }}</p>
+                {% endif %}
 
+                <form method="post" action="{{ url_for('formulario_login') }}">
+                    
+                    <input type="email" id="email" name="email" placeholder="   Email" required><br><br>
+                    
+                    <input type="password" id="senha" name="senha" placeholder="   Senha" required><br><br>
 
-                  <!-- Botão que ENCAMINHA o formulário para a rota /salvar_dados -->
-                  <button type="submit" class="btn-submit">Entrar</button>
-               </form>
+                    <button type="submit" class="btn-submit">Entrar</button>
+                </form>
             
-               <button class="btn-pg-cadastro" onclick="window.location.href='Cadastro.html'">
-                  Cadastre-se
-               </button>
-               
+                <a href="{{ url_for('formulario') }}">
+                    <button class="btn-pg-cadastro">
+                        Cadastre-se
+                    </button>
+                </a>
+                
             </div>
-         </div>
-      </div>
-   </body>
+        </div>
+    </div>
+</body>
 </html>
-
-

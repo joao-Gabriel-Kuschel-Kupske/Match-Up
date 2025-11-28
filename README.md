@@ -3,7 +3,7 @@
 Um projeto que almeja mudar a matemática para os baixinhos.
 Nosso intuito é a promoção de uma educação com qualidade para alunos do 4° e 5° ano EF, tanto através de aulas lúdicas, divertidas e, principalmente, acessíveis aos alunos.
 
-![MIT License](match.up/static/assets/imagens/logo_Mit_License.png)
+![License](match.up/static/assets/imagens/all-rights-reserved.png)
 
 ## 🖼️ Exibição
 
@@ -54,23 +54,30 @@ Match-Up/
 |    |    |    ├── introdução_a_geometria.pdf
 |    |    |    └── múltiplos_e_divisores.pdf
 |    |    └── css
+|    |         ├── style1equacao.css
+|    |         ├── styleangulos.css
 |    |         ├── stylecadastro.css
-|    |         ├── styledivisao.css
 |    |         ├── stylefracao.css
 |    |         ├── stylegeometria.css
 |    |         ├── styleindex.css
 |    |         ├── stylelogin.css
 |    |         ├── stylemultiplos_e_div.css
 |    |         ├── stylepagcursos.css
-|    |         └── styleperfil.css
+|    |         ├── styleperfil.css
+|    |         └── stylesisenum.css
 |    ├── templates
+|    |    ├── 1equacao.html
+|    |    ├── angulos.html
 |    |    ├── aula.html
 |    |    ├── cadastro.html
 |    |    ├── fracao.html
+|    |    ├── geometria.html
 |    |    ├── index.html
 |    |    ├── login.html
+|    |    ├── mult-e-div.html
 |    |    ├── pagcursos.html
-|    |    └── perfil.html
+|    |    ├── perfil.html
+|    |    └── sisenum.html
 |    ├── app.py
 |    └── dados.csv
 ├── venv
@@ -79,6 +86,7 @@ Match-Up/
 |    ├─ .gitignore
 |    ├─ CACHEDIR.TAG
 |    └── pyvenv.cfg
+├── LICENSE
 └── README.md
 
 ### Principais Arquivos
@@ -95,6 +103,6 @@ README.md - Responsável pela descrição do arquivo.
 
 ## Licença  
 
-Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para mais detalhes. 
+Este projeto está licenciado sob a All Rights Reserved License - veja o arquivo [LICENSE](LICENSE) para mais detalhes. 
 
   

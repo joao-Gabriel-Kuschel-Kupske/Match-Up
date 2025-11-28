@@ -1,54 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Matérias</title>
-    <link rel="stylesheet" href="static/css/stylepagcursos.css">
-</head>
-<body >
-    <div class="materias">
-        <div class="logo">
-            <img src="static/assets/imagens/logo3.png" alt="logo MathUp" class="logo2">
-        </div>
-        <div class="espaco"></div>
-       <a href="{{ url_for('area_aluno') }}" class="botao-aluno-link">
-    <div class="aluno">
-
-        <p>Área do Aluno</p>
-    </div>
-</a>
-
-<section class="cursos">
-          <button class="entrada">Fração</button>
-           <button class="entrada">Multiplos e dividores</button>
-            <button class="entrada">Geometria inicial</button>
-             <button class="entrada">Divisão euclidiana</button>
- </section>
-
-
-
-
- <!-- exibir nomes das aulas já com a rota para a aula -->
-        {% for nome in aulas %}
-            <a href="/aula/{{ nome }}" target="_blank">
-                {{ nome }}
+    <head>
+        <meta charset="UTF-8">
+        <title>Matérias</title>
+        <link rel="stylesheet" href="../static/css/stylepagcursos.css">
+    </head>
+    <body >
+        <div class="materias">
+            <a href="#">
+                <div class="logo">
+                    <img src="../static/assets/imagens/logo.png" alt="logo MathUp" class="logo2">
+                </div>
             </a>
-
-        {% endfor %}
-    </div>
-
-    <header class="cima">
-      <a href="#">
-        <div class="logo">
-          <img src="../static/assets/imagens/logo.png" alt="logo" class="logo">
+            <div class="espaco"></div>
+            <a href="{{ url_for('area_aluno') }}" class="botao-aluno-link">
+                <div class="aluno">
+                    <p>Área do Aluno</p>
+                    <img src="../static/assets/imagens/foto-perfil.png" alt="foto-perfil">
+                </div>
+            </a>
         </div>
-      </a>
-      <div class="button">
-        <!-- CORREÇÃO: Usa 'formulario', que é a função que renderiza cadastro.html -->
-        <a href="{{ url_for('formulario') }}" class="criar-link" id="btn-cad-hd"><i>Cadastrar</i></a>
-        <a href="{{ url_for('formulario') }}" class="criar-link" id="btn-log-hd"><i>Login</i></a>
-      </div>
-    </header>
 
+        <section id="courses">
+            <a href="{{ url_for('aula_fra') }}">
+                <div class="btn-to-class" id="btn-f">
+                    <img src="../static/assets/imagens/logofração.png" alt="fração" class="img-class">
+                    <h2>Frações - noções básicas</h2>
+                </div>
+            </a>
+            <a href="{{ url_for('aula_sisenum') }}">
+                <div class="btn-to-class" id="btn-s">
+                    <img src="../static/assets/imagens/icon-color-sisenum.png" alt="Número 10" class="img-class">
+                    <h2>Sistema e números decimais</h2>
+                </div>
+            </a>
+            <a href="{{ url_for('aula_1_equa') }}">
+                <div class="btn-to-class" id="btn-e">
+                    <img src="../static/assets/imagens/icon-color-1equa.png" alt="continhas" class="img-class">
+                    <h2>Equações simples de 1° grau</h2>
+                </div>
+            </a>
+            <a href="{{ url_for('aula_ang') }}">
+                <div class="btn-to-class" id="btn-a">
+                    <img src="../static/assets/imagens/icon-color-ang.png" alt="Representação de ângulos" class="img-class">
+                    <h2>Ângulos</h2>
+                </div>
+            </a>
+            <a href="{{ url_for('aula_geom') }}">
+                <div class="btn-to-class" id="btn-g">
+                    <img src="../static/assets/imagens/icon-color-geo.png" alt="formas geométricas" class="img-class">
+                    <h2>Introdução à geometria</h2>
+                </div>
+            </a>
+            <a href="{{ url_for('aula_mult_e_div') }}">
+                <div class="btn-to-class" id="btn-m">
+                    <img src="../static/assets/imagens/icon-color-mult-e-div.png" alt="sinal de divisão" class="img-class">
+                    <h2>Múltiplos e divisores</h2>
+                </div>
+            </a>
+        </section>
+
+
+            <!-- <section class="cursos"> 
+                <button class="Fração">Botão</button>
+            </section> -->
+
+            
+
+            <!-- exibir nomes das aulas já com a rota para a aula -->
+
+            <!-- {% for materia in aulas %}
+                <a href="{{ url_for('aula', nome=materia) }}">
+                    <div class = "logo">
+                        <img src="{{ url_for('static', filename='assets/imagens/logo' ~ materia ~ '.png') }}" alt="logo sistema">
+                    </div>
+                    <p>{{materia.title() }}</p>
+                </a>
+            {% endfor %} -->
+        
+    </body>
 </html>
 
