@@ -1,16 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 html, body {
   height: 100%;
   margin: 0;
 }
 
 body {
-  background-color: #defff6;
+  background-color: #494848;
+  color: #f0eeee;
   display: flex;
   flex-direction: column;
 }
 
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-top: 15px;
     padding-left: 15px;
 }
@@ -24,12 +29,13 @@ main {
 }
 
 .round-btn {
+  margin-left: 30px;
   width: 35px;        
   height: 35px;          
   border-radius: 50%;     
   border: none;           
-  background-color: #ff9b65; 
-  color: #6691ff;           
+  background-color: #dbdbdb; 
+  color: #000000;           
   font-size: 24px;        
   cursor: pointer;
   display: flex;
@@ -39,7 +45,34 @@ main {
 }
 
 .round-btn:hover {
-  background-color: #ff894a;
+  background-color: #ffffff;
+  transform: scale(1.05);
+}
+
+.logo2 {
+    margin-left: 20px;
+    height: 90px;
+    padding: 10px;
+    padding-top: 0;
+}
+
+.btn-atua-perfil {          
+  border-radius: 30px;     
+  border: none;           
+  background-color: #3a3636; 
+  color: #bbbaba;           
+  font-size: 18px;  
+  margin-right: 30px;
+  padding: 10px;      
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.btn-atua-perfil:hover {
+  background-color: #000000;
   transform: scale(1.05);
 }
 
@@ -72,31 +105,34 @@ main {
 .profile-pic {
   width: 100px;          
   height: 100px;
-  border-radius: 100%;    
-  object-fit: cover;
-  padding: 20px;    
+  border: 2px dotted #000000;
+  border-radius: 100%;
+  margin: 20px;
+  object-fit: cover;   
   margin-right: 10px;  
 }
 
 .profile-info h2 {
-  margin: 0;         
+  margin: 0;
+  margin-left: 20px;
 }
 
 .profile-info h3 {
-  margin: 5px 0;      
+  margin: 5px 0;   
+  margin-left: 20px;
+  font-family: sans-serif;
   font-weight: normal;
 }
 
-.profile-info p {
-  margin: 0;
-  color: #000000;          
-}
 
 section {
-  font-family: "Indie Flower", sans-serif;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 section p {
+  margin-bottom: 30px;
   margin-left: 100px;
   transition: margin-left 0.3s ease;
 }
@@ -123,9 +159,16 @@ section p {
   display: flex;              
   flex-wrap: wrap;            
   gap: 15px;                  
-  justify-content: center;    
+  justify-content: center; 
+  margin: 0 auto;  
   margin-top: 10px;
   margin-bottom: 40px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  background-color: #cccccc;
+  border-radius: 16px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  max-width: 950px;
 }
 
 .achievements img {
@@ -139,11 +182,12 @@ section p {
 footer {
   position: static;       
   width: 100%;           
-  background-color: #ffffff;
+  background-color: #272727;
   text-align: center;    
   font-family: sans-serif; 
   font-size: 12px;       
-  padding: 1px 0;      
-  border-top: 1px solid #cccccc;
+  padding: 1px 0; 
+  color: #ffffff;     
+  border-top: 1px dotted #cccccc;
   margin-top: auto;
 }
