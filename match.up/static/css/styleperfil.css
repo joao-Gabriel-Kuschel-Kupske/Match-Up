@@ -29,7 +29,7 @@ main {
 }
 
 .round-btn {
-  margin-left: 30px;
+  margin-left: 20px;
   width: 35px;        
   height: 35px;          
   border-radius: 50%;     
@@ -50,7 +50,7 @@ main {
 }
 
 .logo2 {
-    margin-left: 20px;
+    margin-left: 35px;
     height: 90px;
     padding: 10px;
     padding-top: 0;
@@ -99,6 +99,12 @@ main {
 @media (max-width: 600px) {
   .profile-container {
     margin-left: 0;     
+  }
+  .round-btn {
+    margin-left: 10px;
+  }
+  .btn-atua-perfil {
+    margin-right: 10px;
   }
 }
 
