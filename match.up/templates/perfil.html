@@ -18,11 +18,11 @@
         </header>
 
         <main>
-            <div class="profile-container">
+            <div class="profile-container" id="idetify-part">
                 <img src="../static/assets/imagens/foto-perfil.png" alt="Foto de perfil" class="profile-pic">
                 <div class="profile-info">
-                <h2>NOME DO ALUNO</h2>
-                <h3>email@exemplo.com</h3>
+                <h2>{{ user.nome }}</h2>
+                <h3>{{ user.email }}</h3>
                 </div>
             </div>
         </main>
@@ -56,7 +56,7 @@
                 </a>
             </div>
             <div id = "certificado" class = "modal">
-                <a href="#" class="fechar">×</a>
+                <a href="#identify-part" class="fechar">×</a>
                 <img src = "../static/assets/imagens/certificate.png" alt = "certificate" class = "imagem">
                 <a href="../static/assets/imagens/certificate.png" class="btn" download>Baixar Certificado</a>
             </div>

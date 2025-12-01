@@ -128,21 +128,47 @@ main img {
     font-weight: normal;
 }
 
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .rating {
     display: inline-block;
-    background-color: #eaf7ff;
     color: #ffbb00;
     font-size: 28px;
     margin-left: 10px;
     margin-top: 10px;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     -webkit-text-stroke: 1px #ffbb00;
     border-radius: 12px;
     padding: 0px 12px;
 }
 
+.star-full {
+    -webkit-text-stroke: 1px black;
+    color: #ffbb00;
+    cursor: pointer;
+}
 .star-empty {
-  color: #fce5a5;
+    -webkit-text-stroke: 1px black;
+    color: #fce5a5;
+    cursor: pointer;
+}
+
+.env-aval {
+    cursor: pointer;
+    margin-left: 47px;
+    width: 100px;
+    height: 40px;
+    background-color: #b2fab2;
+    transition: 0.3s;
+}
+
+.env-aval:hover {
+    background-color: #9be29b;
+    transform: scale(1.03);
 }
 
 footer {

@@ -15,7 +15,7 @@
                 <a href="{{ url_for('area_aluno') }}">
                     <div id="perfil">
                         <img src="../static/assets/imagens/foto-perfil.png" alt="foto-perfil" class="ft-perfil">
-                        <h4>Me</h4>
+                        <h4>{{ user.nome }}</h4>
                     </div>
                 </a>
             </header>
@@ -45,13 +45,43 @@
 
             <section id="review">
                 <h3>Avalie esse módulo e nos ajude a melhorar:</h3>
-                <div class="rating">
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span class="star-empty">★</span>
+                <div id="avalue">
+                    <form method="POST" action="{{ url_for('avaliar_geom') }}">
+                        <div class="rating">
+                            <span data-value="1" class="star-full">★</span>
+                            <span data-value="2" class="star-full">★</span>
+                            <span data-value="3" class="star-full">★</span>
+                            <span data-value="4" class="star-full">★</span>
+                            <span data-value="5" class="star-full">★</span>
+                        </div>
+                        <input type="hidden" name="rating" id="rating-value" value="5">
+                        <div class="btn-rating"> 
+                            <button type="submit" class="env-aval">Enviar</button>
+                        </div>
+                    </form>
                 </div>
+                <script>
+                    const stars = document.querySelectorAll('.rating span');
+                    const ratingInput = document.getElementById('rating-value');
+
+                    stars.forEach(star => {
+                        star.addEventListener('click', () => {
+                            const value = star.getAttribute('data-value');
+                            ratingInput.value = value;
+
+                            // Atualiza visualmente as estrelas
+                            stars.forEach(s => {
+                                if (s.getAttribute('data-value') <= value) {
+                                    s.classList.remove('star-empty');
+                                    s.classList.add('star-full');
+                                } else {
+                                    s.classList.add('star-empty');
+                                    s.classList.remove('star-full');
+                                }
+                            });
+                        });
+                    });
+                </script>
             </section>
         </div>
 
