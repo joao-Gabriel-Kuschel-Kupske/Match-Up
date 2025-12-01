@@ -43,6 +43,20 @@ body{
     grid-column-start: 5;
 }
 
+@media(max-width:600px) {
+    .aluno {
+        margin-right: 10px;
+    }
+}
+@media(max-width:500px) {
+    .aluno {
+        margin-left: 10px;
+    }
+    .aluno p {
+        text-align: center;
+    }
+}
+
 .aluno p {
     text-decoration:none;
     border-top: 2px solid #c7c4c4;

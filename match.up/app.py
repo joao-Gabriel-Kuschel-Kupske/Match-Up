@@ -17,6 +17,7 @@ login_manager.init_app(app)
 login_manager.login_view = 'formulario_login'
 
 CSV_FILENAME = 'usuarios.csv'
+AVALIACAO_FILENAME = 'avaliacao.csv'
 USERS = {}
 
 # -----------------
@@ -54,6 +55,54 @@ def load_initial_users_from_csv():
         except Exception as e:
             print(f"AVISO: Não foi possível ler o CSV de usuários: {e}")
 
+def ensure_avaliacao_header():
+    """Garante que o arquivo de avaliações tenha o cabeçalho correto."""
+    if not os.path.exists(AVALIACAO_FILENAME) or os.path.getsize(AVALIACAO_FILENAME) == 0:
+        with open(AVALIACAO_FILENAME, mode='w', newline='', encoding='utf-8') as file:
+            writer = csv.writer(file)
+            writer.writerow([
+                'data_registro', 'nome', 'email',
+                'Av_f', 'Av_s', 'Av_e', 'Av_a', 'Av_g', 'Av_m'
+            ])
+
+def atualizar_avaliacao(coluna, rating):
+    """Atualiza ou cria a avaliação do usuário na coluna especificada."""
+    data_registro = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    ensure_avaliacao_header()
+
+    rows = []
+    updated = False
+
+    with open(AVALIACAO_FILENAME, mode='r', newline='', encoding='utf-8') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            if row['email'].lower() == current_user.email.lower():
+                row[coluna] = rating
+                row['data_registro'] = data_registro
+                updated = True
+            rows.append(row)
+
+    if not updated:
+        # Cria nova linha com todas as colunas vazias, preenchendo só a atual
+        nova_linha = {
+            'data_registro': data_registro,
+            'nome': current_user.nome,
+            'email': current_user.email,
+            'Av_f': '',
+            'Av_s': '',
+            'Av_e': '',
+            'Av_a': '',
+            'Av_g': '',
+            'Av_m': ''
+        }
+        nova_linha[coluna] = rating
+        rows.append(nova_linha)
+
+    with open(AVALIACAO_FILENAME, mode='w', newline='', encoding='utf-8') as file:
+        fieldnames = ['data_registro','nome','email','Av_f','Av_s','Av_e','Av_a','Av_g','Av_m']
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
 
 def ensure_csv_header():
     """Garante que o arquivo CSV exista com o cabeçalho correto."""
@@ -159,32 +208,32 @@ def logout():
 @app.route('/fração-class')
 @login_required 
 def aula_fra():
-   return render_template('fracao.html')
+   return render_template('fracao.html', user=current_user)
 
 @app.route('/múltiplos-e-divisores-class')
 @login_required 
 def aula_mult_e_div():
-   return render_template('mult-e-div.html')
+   return render_template('mult-e-div.html', user=current_user)
 
 @app.route('/equação-de-1°-grau-class')
 @login_required 
 def aula_1_equa():
-   return render_template('1equacao.html')
+   return render_template('1equacao.html', user=current_user)
 
 @app.route('/ângulos-class')
 @login_required 
 def aula_ang():
-   return render_template('angulos.html')
+   return render_template('angulos.html', user=current_user)
 
 @app.route('/geometria-class')
 @login_required 
 def aula_geom():
-   return render_template('geometria.html')
+   return render_template('geometria.html', user=current_user)
 
 @app.route('/sistema-numérico-class')
 @login_required 
 def aula_sisenum():
-   return render_template('sisenum.html')
+   return render_template('sisenum.html', user=current_user)
 
 @app.route('/area_aluno')
 @login_required 
@@ -196,6 +245,53 @@ def area_aluno():
 @login_required 
 def pagcursos():
     return render_template("pagcursos.html")
+
+# -----------------
+# -- AVALIAÇÃO -----
+# -----------------
+
+@app.route('/avaliar_fra', methods=['POST'])
+@login_required
+def avaliar_fra():
+    rating = request.form.get('rating')
+    atualizar_avaliacao('Av_f', rating)
+    return redirect(url_for('aula_fra'))
+
+@app.route('/avaliar_sisenum', methods=['POST'])
+@login_required
+def avaliar_sisenum():
+    rating = request.form.get('rating')
+    atualizar_avaliacao('Av_s', rating)
+    return redirect(url_for('aula_sisenum'))
+
+@app.route('/avaliar_1grau', methods=['POST'])
+@login_required
+def avaliar_1grau():
+    rating = request.form.get('rating')
+    atualizar_avaliacao('Av_e', rating)
+    return redirect(url_for('aula_1_equa'))
+
+@app.route('/avaliar_ang', methods=['POST'])
+@login_required
+def avaliar_ang():
+    rating = request.form.get('rating')
+    atualizar_avaliacao('Av_a', rating)
+    return redirect(url_for('aula_ang'))
+
+@app.route('/avaliar_geom', methods=['POST'])
+@login_required
+def avaliar_geom():
+    rating = request.form.get('rating')
+    atualizar_avaliacao('Av_g', rating)
+    return redirect(url_for('aula_geom'))
+
+@app.route('/avaliar_mult_div', methods=['POST'])
+@login_required
+def avaliar_mult_div():
+    rating = request.form.get('rating')
+    atualizar_avaliacao('Av_m', rating)
+    return redirect(url_for('aula_mult_e_div'))
+
 
 # -----------------
 # -- EXECUÇÃO -----

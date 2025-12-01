@@ -9,15 +9,20 @@
     <body>
         <header>
             <a href="{{ url_for('entrar') }}"><button class="round-btn" >←</button></a>
+            <a href="#">
+                <div class="logo">
+                    <img src="../static/assets/imagens/logo4.png" alt="logo MathUp" class="logo2">
+                </div>
+            </a>
+            <a href="{{ url_for('entrar') }}"><button class="btn-atua-perfil" >Editar perfil</button></a>
         </header>
 
         <main>
-            <div class="profile-container">
+            <div class="profile-container" id="idetify-part">
                 <img src="../static/assets/imagens/foto-perfil.png" alt="Foto de perfil" class="profile-pic">
                 <div class="profile-info">
-                <h2>NOME DO ALUNO</h2>
-                <h3>IDADE</h3>
-                <h3>EMAIL DE CONTATO</h3>
+                <h2>{{ user.nome }}</h2>
+                <h3>{{ user.email }}</h3>
                 </div>
             </div>
         </main>
@@ -25,15 +30,35 @@
         <section>
             <p>MINHAS CONQUISTAS :</p>
             <div class="achievements">
-                <img src="../static/assets/imagens/certificate.png" alt="certificate">
-                <img src="../static/assets/imagens/certificate.png" alt="certificate">
-                <img src="../static/assets/imagens/certificate.png" alt="certificate">
-                <img src="../static/assets/imagens/certificate.png" alt="certificate">
-                <img src="../static/assets/imagens/certificate.png" alt="certificate">
-                <img src="../static/assets/imagens/certificate.png" alt="certificate">
-                <img src="../static/assets/imagens/certificate.png" alt="certificate">
-                <img src="../static/assets/imagens/certificate.png" alt="certificate">
-                <img src="../static/assets/imagens/certificate.png" alt="certificate">
+                <a href="#certificado">
+                    <img src="../static/assets/imagens/certificate.png" alt="certificate" class="thumb">
+                </a>
+                <a href="#certificado">
+                    <img src="../static/assets/imagens/certificate.png" alt="certificate" class="thumb">
+                </a>
+                <a href="#certificado">
+                    <img src="../static/assets/imagens/certificate.png" alt="certificate" class="thumb">
+                </a>
+                <a href="#certificado">
+                    <img src="../static/assets/imagens/certificate.png" alt="certificate" class="thumb">
+                </a>
+                <a href="#certificado">
+                    <img src="../static/assets/imagens/certificate.png" alt="certificate" class="thumb">
+                </a>
+                <a href="#certificado">
+                    <img src="../static/assets/imagens/certificate.png" alt="certificate" class="thumb">
+                </a>
+                <a href="#certificado">
+                    <img src="../static/assets/imagens/certificate.png" alt="certificate" class="thumb">
+                </a>
+                <a href="#certificado">
+                    <img src="../static/assets/imagens/certificate.png" alt="certificate" class="thumb">
+                </a>
+            </div>
+            <div id = "certificado" class = "modal">
+                <a href="#identify-part" class="fechar">×</a>
+                <img src = "../static/assets/imagens/certificate.png" alt = "certificate" class = "imagem">
+                <a href="../static/assets/imagens/certificate.png" class="btn" download>Baixar Certificado</a>
             </div>
         </section>
 
