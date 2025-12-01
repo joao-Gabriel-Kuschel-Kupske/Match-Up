@@ -8,7 +8,7 @@
 
   <body>
 
-    <header class="cima">
+    <header class="cima"  id="inicio">
       <a href="#">
         <div class="logo">
           <img src="../static/assets/imagens/logo.png" alt="logo" class="logo">
@@ -29,7 +29,7 @@
       </div>
     </section>
 
-    <section class="sobre" id="about">
+    <section class="sobre"  id="sobre">
       <div class="nos">
         <div class="nos-imagem">
           <img src="../static/assets/imagens/logo2.png" alt="logo MathUp" class="logo2">
@@ -64,19 +64,31 @@
       </div>
     </section>
 
+<div id="contato" class="modal">
+    <div class="modal-conteudo">
+        <span class="fechar">&times;</span> 
+        <h3>Entre em contato para te auxiliar-mos na sua experiÊncia MATH UP</h3>
+        <input type="email" value="mathupauxilio@gmail.com" readonly>
+    </div>
+</div>
+
+<script src="../templates/script.js"></script>
+
     <footer class="footer">
       <div class="footer-content">
           <h4>MathUp © 2025</h4>
           <p>Aprendizado acessível para todas as crianças.</p>
 
           <div class="footer-links">
-              <a href="#">Início</a>
-              <a href="#about">Sobre</a>
-              <a href="#">Contato</a>
-              <a href="#">Ajuda</a>
+              <a href="#inicio">Início</a>
+              <a href="#sobre">Sobre</a>
+              <button id="contato">Dúvidas | Contato</button>
+              <a href="#" id="  ">Dúvidas | Contato</a>
+              <a href="#ajuda">Ajuda</a>
           </div>
       </div>
     </footer>
+<script src="templates/script.js"></script>
   </body>
   
 
