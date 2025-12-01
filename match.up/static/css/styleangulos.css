@@ -15,7 +15,7 @@ html {
     --cor-borda: #ff28b7;
 }
 body {
-    background-color: #ff76ed;
+    background-color: #fca5f0;
 }
 #borda {
     border-left: 4px solid var(--cor-borda);
