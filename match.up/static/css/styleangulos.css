@@ -15,7 +15,7 @@ html {
     --cor-borda: #ff28b7;
 }
 body {
-    background-color: #ff76ed;
+    background-color: #fca5f0;
 }
 #borda {
     border-left: 4px solid var(--cor-borda);
@@ -74,13 +74,28 @@ header a {
 .discribe h1 {
     font-weight: normal;
     font-size: 15px;
-    margin-right: 200px;
+    margin-right: 10px;
 }
 @media (max-width:600px) {
     .discribe h1 {
         margin-right: 30px;
     }
 }
+
+#star-shown {
+    cursor: default;
+}
+
+#show-middle {
+    display: flex;
+    margin-right: 190px;
+}
+
+.media_av {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
 .round-btn {
     width: 35px;        
     height: 35px;          
