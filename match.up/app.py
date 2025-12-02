@@ -119,7 +119,7 @@ load_initial_users_from_csv()
 
 @app.route('/')
 def inicio():
-   return render_template('testesimples.html')
+   return render_template('index.html')
 
 @app.route('/entrar')
 def entrar():
@@ -357,7 +357,7 @@ def calcular_medias_por_categoria():
                 soma = dados['soma']
                 total = dados['total']
                 
-                media = round(soma / total, 2) if total > 0 else 0.0
+                media = round(soma / total, 1) if total > 0 else 0.0
                 
                 resultados_finais[coluna] = {
                     'media': media,

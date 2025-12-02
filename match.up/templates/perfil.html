@@ -8,15 +8,25 @@
     </head>
     <body>
         <header>
-            <a href="{{ url_for('entrar') }}"><button class="round-btn" >←</button></a>
             <a href="#">
                 <div class="logo">
                     <img src="../static/assets/imagens/logo4.png" alt="logo MathUp" class="logo2">
                 </div>
             </a>
-            <a href="{{ url_for('entrar') }}"><button class="btn-atua-perfil" >Editar perfil</button></a>
+            <div class="logout-container">
+                <!-- Botão principal -->
+                <button id="btn-logout" type="button">Logout ▼</button>
+
+                <!-- Botão extra escondido -->
+                <button class="hidden" id="btn-sair" type="button">
+                    Sair
+                </button>
+            </div>
         </header>
 
+        <nav>
+            <a href="{{ url_for('entrar') }}"><button class="round-btn" >←</button></a>
+        </nav>
         <main>
             <div class="profile-container" id="idetify-part">
                 <img src="../static/assets/imagens/foto-perfil.png" alt="Foto de perfil" class="profile-pic">
@@ -25,6 +35,7 @@
                 <h3>{{ user.email }}</h3>
                 </div>
             </div>
+            <a href="{{ url_for('entrar') }}"><button class="btn-atua-perfil" >Editar perfil</button></a>
         </main>
 
         <section>
@@ -65,5 +76,17 @@
         <footer>
             <p>© 2025 - Todos os direitos reservados</p>
         </footer>
+
+        <script>
+            // Alterna mostrar/esconder o botão "Sair"
+            document.getElementById('btn-logout').addEventListener('click', function() {
+                document.getElementById('btn-sair').classList.toggle('hidden');
+            });
+
+            // Ao clicar no botão Sair → ir para a rota logout
+            document.getElementById('btn-sair').addEventListener('click', function() {
+                window.location.href = "{{ url_for('logout') }}";
+            });
+        </script>
     </body>
 </html>
