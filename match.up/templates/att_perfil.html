@@ -18,7 +18,7 @@
     <body>
 
 
-    <div>
+    <div class="container">
         <h1>Editar Perfil de {{ user.nome }}</h1>
 
         {% if mensagem_sucesso %}
@@ -63,8 +63,8 @@
             <a href="{{ url_for('pagcursos') }}" class="btn-voltar">Voltar para Cursos</a>
             <button type="submit">Salvar Alterações</button>
         </form>
-
-       
     </div>
+
+    
 </body>
 </html>

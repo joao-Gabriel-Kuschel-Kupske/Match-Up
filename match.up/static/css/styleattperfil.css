@@ -40,7 +40,7 @@ input[type="file"] {
 label {
     color: #e0e0e0;       /* muda a cor do texto */
     font-weight: 500;
-
+    font-size: 20px;;
     margin-top: 10px;
 }
 button {
@@ -74,3 +74,9 @@ button:hover {
 .btn-voltar:hover {
     background-color: #df9e36; /* cor mais escura ao passar o mouse */
 }
+
+.container {
+    margin: 60px; /* afasta de todas as bordas */
+    margin-top: 0;
+}
+
