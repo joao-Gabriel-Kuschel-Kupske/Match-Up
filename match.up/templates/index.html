@@ -73,36 +73,27 @@
           <div class="footer-links">
               <a href="#inicio">Início</a>
               <a href="#sobre">Sobre</a>
-              <button id="open-modal">Contato</button>
+              <div onclick="openModal()" class="btn">Contato</div>
               <a href="#ajuda">Perguntas Frequentes</a>
           </div>
       </div>
 
     </footer>
-<script src="templates/script.js"></script>
 
- <div id="fade" class="hide"></div>
-    <div id="modal" class="hide">
-      <div class="modal-header">
-        <h2>Este é o Modal</h2>
-        <button id="close-modal">Fechar</button>
-      </div>
-      <div class="modal-body">
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic, quam?
-          Quas accusantium id cupiditate iste veritatis repudiandae odio dolore
-          voluptas. Eum, deserunt quod. Sit similique laudantium assumenda
-          repellat vel necessitatibus.
-        </p>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius alias
-          voluptate doloremque, totam inventore autem quis non error! Earum
-          ullam fuga, officiis voluptates pariatur unde et adipisci ducimus non
-          obcaecati.
-        </p>
-      </div>
+
+     <div id="modal-container" class="modal-container">
+        <div class="modal">
+            <button class="fechar" id="fechar">X</button>
+            <h9>Contate-nos para tornar sua experiência MATH UP ainda melhor:</h9>
+            <p class="email">
+              Entre em contato: <a href="mailto:assistencia.mathup@gmail.com">assistencia.mathup@gmail.com</a>
+            </p>
+
+
+        </div>
     </div>
 
+<script src="../static/js/script.js"></script>
 
 
   </body>
