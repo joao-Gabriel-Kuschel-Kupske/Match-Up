@@ -4,20 +4,18 @@
     <head>
         <title>Perfil</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../static/css/styleperfil.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styleperfil.css') }}">
     </head>
     <body>
         <header>
             <a href="#">
                 <div class="logo">
-                    <img src="../static/assets/imagens/logo4.png" alt="logo MathUp" class="logo2">
+                    <img src="{{ url_for('static', filename='assets/imagens/logo4.png') }}" alt="logo MathUp" class="logo2">
                 </div>
             </a>
             <div class="logout-container">
-                <!-- Botão principal -->
                 <button id="btn-logout" type="button">Logout ▼</button>
 
-                <!-- Botão extra escondido -->
                 <button class="hidden" id="btn-sair" type="button">
                     Sair
                 </button>
@@ -28,48 +26,38 @@
             <a href="{{ url_for('entrar') }}"><button class="round-btn" >←</button></a>
         </nav>
         <main>
-            <div class="profile-container" id="idetify-part">
-                <img src="../static/assets/imagens/foto-perfil.png" alt="Foto de perfil" class="profile-pic">
+            <div class="profile-container" id="identify-part">
+                <img src="{{ user.foto_perfil }}" alt="Foto de perfil" class="profile-pic">
                 <div class="profile-info">
                 <h2>{{ user.nome }}</h2>
                 <h3>{{ user.email }}</h3>
                 </div>
             </div>
-            <a href="{{ url_for('entrar') }}"><button class="btn-atua-perfil" >Editar perfil</button></a>
+            <a href="{{ url_for('att_perfil_page') }}"><button class="btn-atua-perfil" >Editar perfil</button></a>
+            
+            {% if mensagem_sucesso %}
+                <div style="color: green; margin-top: 10px;">{{ mensagem_sucesso }}</div>
+            {% endif %}
+
+            {% if mensagem_erro %}
+                <div style="color: red; margin-top: 10px;">{{ mensagem_erro }}</div>
+            {% endif %}
+            
         </main>
 
         <section>
             <p>MINHAS CONQUISTAS :</p>
             <div class="achievements">
+                {% for i in range(8) %}
                 <a href="#certificado">
-                    <img src="../static/assets/imagens/certificate.png" alt="certificate" class="thumb">
+                    <img src="{{ url_for('static', filename='assets/imagens/certificate.png') }}" alt="certificate" class="thumb">
                 </a>
-                <a href="#certificado">
-                    <img src="../static/assets/imagens/certificate.png" alt="certificate" class="thumb">
-                </a>
-                <a href="#certificado">
-                    <img src="../static/assets/imagens/certificate.png" alt="certificate" class="thumb">
-                </a>
-                <a href="#certificado">
-                    <img src="../static/assets/imagens/certificate.png" alt="certificate" class="thumb">
-                </a>
-                <a href="#certificado">
-                    <img src="../static/assets/imagens/certificate.png" alt="certificate" class="thumb">
-                </a>
-                <a href="#certificado">
-                    <img src="../static/assets/imagens/certificate.png" alt="certificate" class="thumb">
-                </a>
-                <a href="#certificado">
-                    <img src="../static/assets/imagens/certificate.png" alt="certificate" class="thumb">
-                </a>
-                <a href="#certificado">
-                    <img src="../static/assets/imagens/certificate.png" alt="certificate" class="thumb">
-                </a>
+                {% endfor %}
             </div>
             <div id = "certificado" class = "modal">
                 <a href="#identify-part" class="fechar">×</a>
-                <img src = "../static/assets/imagens/certificate.png" alt = "certificate" class = "imagem">
-                <a href="../static/assets/imagens/certificate.png" class="btn" download>Baixar Certificado</a>
+                <img src = "{{ url_for('static', filename='assets/imagens/certificate.png') }}" alt = "certificate" class = "imagem">
+                <a href="{{ url_for('static', filename='assets/imagens/certificate.png') }}" class="btn" download>Baixar Certificado</a>
             </div>
         </section>
 

@@ -1,5 +1,3 @@
-data_registro,nome,email,senha
-2025-11-27 23:42:49,João Gabriel,jgkk@gmail.com,0207
-2025-11-27 23:47:17,Ana Laura,AnaLK@gmail.com,098765
-2025-11-27 21:20:16,isabela,isabelafonsecacouto@gmail.com,isabela
-2025-12-01 19:15:19,Matheus,mmmmmmm@gmail.com,11223344
+data_registro,nome,email,senha,foto_perfil
+2025-12-03 01:21:58,Ana Laura,anakf@gmail.com,2444,/static/uploads/perfil_fotos/4abff10f-2645-4822-a489-6f075559421e.jpg
+2025-12-03 01:35:47,erik,erikh@gmail,1234,/static/uploads/perfil_fotos/af772817-199f-47f4-870e-039fce96741f.jpeg

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+    </head>
+<body>
+    <div>
+        <h1>Editar Perfil de {{ user.nome }}</h1>
+
+        {% if mensagem_sucesso %}
+            <div style="color: green;">{{ mensagem_sucesso }}</div>
+        {% endif %}
+
+        {% if mensagem_erro %}
+            <div style="color: red;">{{ mensagem_erro }}</div>
+        {% endif %}
+
+        <form method="POST" enctype="multipart/form-data" action="{{ url_for('att_perfil_page') }}">
+            
+            <div>
+                <img src="{{ user.foto_perfil }}" alt="Foto de Perfil" style="width: 100px; height: 100px;">
+            </div>
+
+            <div>
+                <label for="foto_perfil">Alterar Foto de Perfil (JPG, PNG, GIF):</label>
+                <input type="file" id="foto_perfil" name="foto_perfil" accept="image/png, image/jpeg, image/gif">
+            </div>
+
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" value="{{ user.nome }}" required>
+            </div>
+
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="{{ user.email }}" required>
+            </div>
+
+            <div>
+                <label for="nova_senha">Nova Senha (deixe em branco para manter a atual):</label>
+                <input type="password" id="nova_senha" name="nova_senha">
+            </div>
+
+            <div>
+                <label for="senha_atual">Confirme sua Senha Atual (Obrigatório para salvar):</label>
+                <input type="password" id="senha_atual" name="senha_atual" required>
+            </div>
+
+            <button type="submit">Salvar Alterações</button>
+        </form>
+
+        <a href="{{ url_for('pagcursos') }}">Voltar para Cursos</a>
+    </div>
+</body>
+</html>
