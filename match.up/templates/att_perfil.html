@@ -4,17 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Perfil</title>
+    <link rel="stylesheet" href="../static/css/styleattperfil.css">
     </head>
 <body>
+
+            <div class="materias">
+            <a href="{{ url_for('inicio') }}">
+                <div class="logo">
+                    <img src="../static/assets/imagens/logo.png" alt="logo MathUp" class="logo2">
+                </div>
+            </a>
+            <div class="espaco"></div>
+            <a href="{{ url_for('area_aluno') }}" class="botao-aluno-link">
+                
+            </a>
+        </div>
+
+
     <div>
         <h1>Editar Perfil de {{ user.nome }}</h1>
 
         {% if mensagem_sucesso %}
-            <div style="color: green;">{{ mensagem_sucesso }}</div>
+            <div style="color: rgb(33, 102, 33);">{{ mensagem_sucesso }}</div>
         {% endif %}
 
         {% if mensagem_erro %}
-            <div style="color: red;">{{ mensagem_erro }}</div>
+            <div style="color: rgb(105, 20, 20);">{{ mensagem_erro }}</div>
         {% endif %}
 
         <form method="POST" enctype="multipart/form-data" action="{{ url_for('att_perfil_page') }}">
