@@ -1,34 +1,76 @@
+/* Cabeçalho ocupando toda a largura com a imagem centralizada */
+.topo {
+    width: 100%;                 /* Usa toda a largura da tela */
+    display: flex;               /* Permite centralizar elementos */
+    justify-content: center;     /* Centraliza horizontalmente */
+    align-items: center;         /* Alinha verticalmente */
+    padding: 15px 0;             /* Espaçamento interno */
+    background-color: #2b2b2b;   /* Mesma cor do fundo para ficar uniforme */
+}
+
+/* A imagem mantem o estilo anterior */
+.logo2 {
+    margin: 0;                   /* Removemos margens pois agora centraliza pelo flex */
+    height: 180px;                /* Mantém o tamanho da logo */
+    width: 350px;;
+   
+}
+
 body{
     background-color: #2b2b2b;
 }
 
-.logo2 {
-    margin-left: 20px;
+h1{
+    color: white;
+    font-family: Arial; 
+}
+
+input {
+    background-color: #1f1f1f;   /* cor de fundo */
+    color: #e0e0e0;              /* cor do texto */
+    border: 1px solid #555;      /* borda */
+    padding: 8px;
+    border-radius: 6px;          /* cantos arredondados */
+    margin-bottom: 10px;         /* espaço */
+    width: 300px;                /* largura */
+}
+input[type="file"] {
+    color: #949292;
+}
+label {
+    color: #e0e0e0;       /* muda a cor do texto */
+    font-weight: 500;
+
     margin-top: 10px;
-    height: 180px;
-    width: ;: 100px;
-
 }
-.materias {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;    /*display: grid;*/
-    /*grid-template-columns: repeat(5, 1fr);*/
-    /*grid-template-rows: repeat(9, 1fr);*/
-    /*gap: 20px;*/
-}
-.materias a {
-    text-decoration: none;
+button {
+    background-color: #4a72ff;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 15px;
 }
 
-/* .espaco {grid-column: span 3 / span 3;} */
-     
+button:hover {
+    background-color: #3452c8;
+}
 
+.btn-voltar {
+    background-color: #f3b368;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 15px;
+}
 
-.botao-aluno-link {
-    text-decoration:none;
-    color: #2b2b2b;
-    font-size: 20px;
-    -webkit-text-stroke: 0.5px #c7c4c4;
-    font-family: "Alfa Slab One", sans-serif;
+.btn-voltar:hover {
+    background-color: #df9e36; /* cor mais escura ao passar o mouse */
 }

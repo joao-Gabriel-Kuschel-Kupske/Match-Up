@@ -6,19 +6,16 @@
     <title>Editar Perfil</title>
     <link rel="stylesheet" href="../static/css/styleattperfil.css">
     </head>
-<body>
 
-            <div class="materias">
-            <a href="{{ url_for('inicio') }}">
-                <div class="logo">
-                    <img src="../static/assets/imagens/logo.png" alt="logo MathUp" class="logo2">
-                </div>
-            </a>
-            <div class="espaco"></div>
-            <a href="{{ url_for('area_aluno') }}" class="botao-aluno-link">
-                
-            </a>
-        </div>
+    <header class="topo">
+    <!-- Imagem centralizada dentro do cabeçalho -->
+    <a href="{{ url_for('inicio') }}">
+        <img src="../static/assets/imagens/logo.png" alt="logo MathUp" class="logo2">
+    </a>
+
+</header>
+
+    <body>
 
 
     <div>
@@ -63,10 +60,11 @@
                 <input type="password" id="senha_atual" name="senha_atual" required>
             </div>
 
+            <a href="{{ url_for('pagcursos') }}" class="btn-voltar">Voltar para Cursos</a>
             <button type="submit">Salvar Alterações</button>
         </form>
 
-        <a href="{{ url_for('pagcursos') }}">Voltar para Cursos</a>
+       
     </div>
 </body>
 </html>
