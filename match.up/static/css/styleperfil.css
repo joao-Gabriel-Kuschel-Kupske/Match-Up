@@ -37,13 +37,14 @@ header a {
     color: white;
     padding: 8px 12px;
     cursor: pointer;
+    border-radius: 8px;
 }
 
 #btn-sair {
     width: 83.67px;
     height: 30px;
     text-align: center;
-    background-color: red;
+    background-color: rgb(131, 29, 29);
     color: white;
     padding: 8px 12px;
     border-radius: 8px;
