@@ -423,3 +423,82 @@ h9{
     color: #02162b;        /* Cor ao passar o mouse */
     text-decoration: underline;
 }
+
+
+.planos {
+    text-align: center;
+    padding: 50px 20px;
+    background: #d0d0d0;
+    margin-top: 0px;
+}
+
+.planos h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #8c52ff;
+}
+
+.cards-planos {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.plano {
+    background: white;
+    width: 280px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.plano:hover {
+    transform: scale(1.05);
+}
+
+.plano h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.preco {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2e73ff;
+    display: block;
+    margin: 10px 0;
+}
+
+.plano ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.plano ul li {
+    margin: 6px 0;
+}
+
+.btn-assinar {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #2e73ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-assinar:hover {
+    background: #1f58c9;
+}
+
+/* Destaque no plano do meio */
+.destaque {
+    border: 3px solid #2e73ff;
+    transform: scale(1.07);
+}
