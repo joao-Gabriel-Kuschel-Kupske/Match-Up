@@ -48,6 +48,7 @@ header a {
 }
 .ft-perfil {
     height: 60px;
+    border-radius: 50%;
 }
 .title {
     display: flex;

@@ -8,7 +8,7 @@
     </head>
     <body>
         <header>
-            <a href="#">
+            <a href="{{ url_for('entrar') }}">
                 <div class="logo">
                     <img src="{{ url_for('static', filename='assets/imagens/logo4.png') }}" alt="logo MathUp" class="logo2">
                 </div>
@@ -36,7 +36,7 @@
             <a href="{{ url_for('att_perfil_page') }}"><button class="btn-atua-perfil" >Editar perfil</button></a>
             
             {% if mensagem_sucesso %}
-                <div style="color: green; margin-top: 10px;">{{ mensagem_sucesso }}</div>
+                
             {% endif %}
 
             {% if mensagem_erro %}
