@@ -14,7 +14,7 @@
                 </a>
                 <a href="{{ url_for('area_aluno') }}">
                     <div id="perfil">
-                        <img src="../static/assets/imagens/foto-perfil.png" alt="foto-perfil" class="ft-perfil">
+                       <img src="{{ user.foto_perfil }}" alt="Foto de perfil" class="ft-perfil">
                         <h4>{{ user.nome }}</h4>
                     </div>
                 </a>
@@ -32,19 +32,11 @@
                 </div>
             </section>
 
-            <main>
-                <a href="">
-                    <img src="../static/assets/imagens/lesson-fracao.png" alt="lesson">
-                </a>
-                <a href="">
-                    <img src="../static/assets/imagens/lesson-fracao.png" alt="lesson">
-                </a>
-                <a href="">
-                    <img src="../static/assets/imagens/lesson-fracao.png" alt="lesson">
-                </a>
-                <a href="">
-                    <img src="../static/assets/imagens/lesson-fracao.png" alt="lesson">
-                </a>
+                                    <main>
+                <div class = "pdf-container">
+                    <iframe src="../static/aulas/múltiplos_e_divisores.pdf" alt="lesson"class="pdf-full">
+                    </iframe>
+                </div>
             </main>
 
             <section id="review">
