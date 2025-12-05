@@ -80,6 +80,10 @@ load_initial_users_from_csv()
 def inicio():
    return render_template('index.html')
 
+@app.route('/FAQ')
+def perguntas():
+   return render_template('FAQ.html')
+
 @app.route('/entrar')
 def entrar():
    return redirect(url_for('pagcursos'))
