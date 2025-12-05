@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+html {
+  background-color: #c5c6ff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #c5c6ff;
+}
+
+.cima{
+  display: flex; /*ativa flexbox*/
+  justify-content:space-between;
+  align-items: center;
+  background-color: #2b2b2b;
+  padding:20px 40px;
+  border-bottom: 5px solid #222221; 
+  box-shadow: rgba(77, 77, 77, 0.45) 0px 25px 20px -20px;
+}
+.logo img{
+  height:80px;
+}
+.criar-link {
+    display: inline-block;
+    padding: 10px 0px;           /* Tamanho do botão */
+    background-color: #d9d9d9;      /* Fundo branco */
+    color: rgb(0, 0, 0);                 /* Texto preto */
+    border: none;                 /* Sem borda */
+    border-radius: 100px;         /* Cantos bem curvados */
+    font-size: 16px;              /* Tamanho da fonte */
+    font-weight: 400;             /* Texto levemente em negrito */
+    font-family: 'Poppins', sans-serif;
+    width: 120px;
+    text-align: center;
+    text-decoration: none;        /* Remove o sublinhado */
+    cursor: pointer;              /* Mãozinha ao passar o mouse */
+    transition: 0.3s;             /* Animação suave */
+}
+.criar-link:hover {
+    background-color: #474747;    /* Leve cinza ao passar o mouse */
+    transform: scale(1.05);       /* Leve aumento */
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+}
+
+.button button{
+  border: none ;
+  padding: 10px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+#btn-cad-hd {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+#btn-log-hd {
+  margin-left: 10px;
+}
+
+@media(max-width:550px) {
+
+  .button {
+    flex-direction: column;
+    margin-right: 20px;
+  }
+  #btn-cad-hd {
+    margin-bottom: 10px;
+  }
+  #btn-log-hd {
+    margin-left: 0px;
+  }
+  .cima {
+    padding-right: 10px;
+    padding-left: 20px;
+  }
+
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-title-cont {
+  margin-top: 30px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.page-title-cont h2 {
+  text-align: center;
+  font-weight: normal;
+}
+
+.lot-btns {
+  margin-top: 45px;
+  margin-bottom: 65px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.lot-btns a {
+  text-decoration: none;
+}
+
+.btn-sec {
+  background-color: #131212;
+  color: #c9c9c9;
+  width: 180px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  align-items: center;
+  gap: 1px;
+}
+
+.btn-pic {
+  margin-top: 31px;
+  width: 40px;
+}
+
+.btn-sec h4 {
+  font-weight: 400;
+  font-size: 18px;
+  margin: 0;
+}
+
+#Perguntas {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.topic {
+  margin-bottom: 100px;
+}
+
+.title-topic1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #8f8d8d65;
+}
+
+.title-topic1 img {
+  width: 30px;
+}
+
+.pergunta {
+  border-bottom: 1px solid #8f8d8d65;
+}
+
+.title_quest {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-bottom: 25px;
+}
+
+.pergunta button {
+  background-color: #c5c6ff;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+
+.resposta {
+  display: none;
+  color: #8f8d8de7;
+  margin: 10px;
+  margin-left: 30px;
+  margin-bottom: 25px;
+}
+
+.footer {
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+    background-color: #1b1b1b;              /* fundo escuro */
+    color: #f9b233;                      /* amarelo da MathUp */
+    text-align: center;                  /* centraliza texto */
+    padding: 40px 20px;                  /* espaço interno */
+}
+
+.footer-content h4 {
+    margin-top: 0px;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.footer-content p {
+    font-size: 14px;
+    color: #ddd;                         /* cinza clarinho */
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;                           /* espaço entre links */
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #f9b233;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #2b2b2b;                      /* fica branco ao passar o mouse */
+}
+/* remove margem inferior de tudo antes do footer */
+
+
+/* Este bloco DEVE ser adicionado ao seu arquivo CSS */
+
+.btn{
+    color: #f9b233;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover{
+   color: #2b2b2b;
+}
+
+.modal-container{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #0000004b;
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.modal{
+    width: 60%;
+    min-width:400px;
+    min-height: 200px;
+    background-color: #ffffff62;
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.fechar{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background-color: #a32222;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14pt;
+    cursor: pointer;
+}
+
+.modal h1{
+    margin-bottom: 20px;
+}
+
+@keyframes animate-modal {
+    from{
+        opacity: 0;
+        transform: translate3d(0, -20px, 0);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.modal-container.mostrar{
+    display: flex;
+}
+
+.mostrar .modal{
+    animation: animate-modal .3s;
+}
+
+h9{
+    font-size: 30px;
+    color:#2b2b2b;
+    font-weight: bold;
+}
+.email a {
+    color: #062c52;        /* Cor do link */
+    text-decoration: none; /* Remove o sublinhado */
+    font-size: 20px;      /* Deixa o link mais marcante */
+    cursor: pointer;       /* Mostra que é clicável */
+}
+
+.email a:hover {
+    color: #02162b;        /* Cor ao passar o mouse */
+    text-decoration: underline;
+}

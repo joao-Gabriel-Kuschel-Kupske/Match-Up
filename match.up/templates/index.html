@@ -146,14 +146,14 @@
               <a href="#inicio">Início</a>
               <a href="#sobre">Sobre</a>
               <div onclick="openModal()" class="btn">Contato</div>
-              <a href="#ajuda">Perguntas Frequentes</a>
+              <a href="{{ url_for('perguntas') }}">Perguntas Frequentes</a>
           </div>
       </div>
 
     </footer>
 
 
-     <div id="modal-container" class="modal-container">
+      <div id="modal-container" class="modal-container">
         <div class="modal">
             <button class="fechar" id="fechar">X</button>
             <h9>Contate-nos para tornar sua experiência MATH UP ainda melhor:</h9>
@@ -164,7 +164,7 @@
 
 
         </div>
-    </div>
+      </div>
 
 <script src="../static/js/script.js"></script>
 

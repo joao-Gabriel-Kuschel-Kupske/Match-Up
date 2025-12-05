@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <title>MathUp - Perguntas Frequentes</title>
+    <link rel="stylesheet" href="../static/css/styleFAQ.css">
+  </head>
+
+  <body>
+
+    <header class="cima"  id="inicio">
+      <a href="{{ url_for('inicio') }}">
+        <div class="logo">
+          <img src="../static/assets/imagens/logo.png" alt="logo" class="logo">
+        </div>
+      </a>
+      <div class="button">
+        <!-- CORREÇÃO: Usa 'formulario', que é a função que renderiza cadastro.html -->
+        <a href="{{ url_for('formulario') }}" class="criar-link" id="btn-cad-hd"><i>Cadastrar</i></a>
+        <a href="{{ url_for('formulario_login') }}" class="criar-link" id="btn-log-hd"><i>Login</i></a>
+      </div>
+    </header>
+
+    <main>
+      <div class="page-title-cont">
+        <h1>Perguntas Frequentes</h1>
+        <h2>Veja as soluções para as dúvidas mais comuns sobre a <strong>Math Up</strong>. As questões estão organizadas por categorias. Selecione a pergunta para visualizar a explicação correspondente.</h2>
+      </div>
+      <div class="lot-btns">
+
+        <a href="#topic1">
+          <div class="btn-sec">
+            <img src="../static/assets/imagens/logo-btn-tp1.png" class="btn-pic" alt="computador">
+            <h4>Plataforma</h4>
+          </div>
+        </a>
+        <a href="#topic2">
+          <div class="btn-sec">
+            <img src="../static/assets/imagens/logo-btn-tp2.png" class="btn-pic" alt="certificado">
+            <h4>Certificação</h4>
+          </div>
+        </a>
+        <a href="#topic3">
+          <div class="btn-sec">
+            <img src="../static/assets/imagens/logo-btn-tp3.png" class="btn-pic" alt="cadeado">
+            <h4>Acesso</h4>
+          </div>
+        </a>
+        <a href="#topic4">
+          <div class="btn-sec">
+            <img src="../static/assets/imagens/logo-btn-tp4.png" class="btn-pic" alt="telemarketing">
+            <h4>Suporte e Planos</h4>
+          </div>
+        </a>
+
+      </div>
+    
+
+      <section id="Perguntas">
+
+        <div class="topic" id="topic1">
+          <div class="title-topic1">
+            <img src="../static/assets/imagens/logo-tp1.png" class="" alt="computador">
+            <h2>Plataforma</h2>
+          </div>
+          <div class="pergunta">
+            <div class="title_quest">
+              <h3>O que é o Math-Up?</h3>
+              <button class="show">+</button>
+              <!-- <button class="hidden">×</button> -->
+            </div>
+            <div class="resposta">
+              <p>O Math-Up é uma plataforma de matemática feita especialmente para crianças do 4° e 5° ano, com aulas divertidas, acessíveis e pensadas para tornar a aprendizagem leve e interessante.</p>
+            </div>        
+          </div>
+          
+          <div class="pergunta">
+            <div class="title_quest">
+              <h3>A partir de que idade a plataforma é direcionada?</h3>
+              <button class="show">+</button>
+              <!-- <button class="hidden">×</button> -->
+            </div>
+            <div class="resposta">
+              <p>Para crianças que estão no 4° e 5° ano do Ensino Fundamental.</p>
+            </div>
+          </div>
+          
+          <div class="pergunta">
+            <div class="title_quest">
+              <h3>Precisa saber o conteúdo antes?</h3>
+              <button class="show">+</button>
+              <!-- <button class="hidden">×</button> --> 
+            </div>
+            <div class="resposta">
+              <p>Não. Todo o conteúdo necessário desses anos é ensinado nos cursos.</p>
+            </div>
+          </div>
+          
+          <div class="pergunta">
+            <div class="title_quest">
+              <h3>O site funciona como reforço escolar?</h3>
+              <button class="show">+</button>
+              <!-- <button class="hidden">×</button> -->
+            </div>
+            <div class="resposta">
+              <p>Sim. Ele pode ser usado como reforço escolar, oferecendo explicações claras e atividades que complementam o conteúdo da escola.</p>
+            </div>
+          </div>
+          
+          <div class="pergunta">
+            <div class="title_quest">
+              <h3>Existe avaliação dentro dos módulos?</h3>
+              <button class="show">+</button>
+              <!-- <button class="hidden">×</button> -->
+            </div>
+            <div class="resposta">
+                <p>Sim. Cada módulo possui aulas e questões para acompanhar o progresso da criança.</p>
+            </div>
+          </div>
+    
+        </div>
+
+        <div class="topic">
+          <div class="title-topic1" id="topic2">
+            <img src="../static/assets/imagens/logo-tp2.png" class="" alt="certificado">
+            <h2>Certificação</h2>
+          </div>
+          <div class="pergunta">
+            <div class="title_quest">
+              <h3>Existe certificação?</h3>
+              <button class="show">+</button>
+              <!-- <button class="hidden">×</button> -->
+            </div>
+            <div class="resposta">
+                <p>Sim. A criança recebe 1 certificado digital a cada módulo concluído.</p>
+            </div>
+          </div>
+
+          <div class="pergunta">
+            <div class="title_quest">
+              <h3>Como funciona a avaliação para receber o certificado?</h3>
+              <button class="show">+</button>
+              <!-- <button class="hidden">×</button> -->
+            </div>
+            <div class="resposta">
+                <p>Ao finalizar as aulas e atividades do módulo, se o estudante obtiver média maior que 50%, o sistema libera automaticamente o certificado digital no perfil do aluno.</p>
+            </div>
+          </div>
+  
+        </div>
+
+        <div class="topic">
+          <div class="title-topic1" id="topic3">
+            <img src="../static/assets/imagens/logo-tp3.png" class="" alt="cadeado">
+            <h2>Acesso</h2>
+          </div>
+          <div class="pergunta">
+            <div class="title_quest">
+              <h3>Como funciona o login e logout?</h3>
+              <button class="show">+</button>
+              <!-- <button class="hidden">×</button> -->
+            </div>
+            <div class="resposta">
+                <p>O aluno ou responsável faz login usando e-mail e senha cadastrados.
+  Para sair, basta clicar no botão "Logout", depois “Sair”, localizados na página de perfil, que encerrará a sessão com segurança.</p>
+            </div>
+          </div>
+
+          <div class="pergunta">
+            <div class="title_quest">
+              <h3>O que preciso para acessar o site?</h3>
+              <button class="show">+</button>
+              <!-- <button class="hidden">×</button> --> 
+            </div>
+            <div class="resposta">
+                <p>Apenas um navegador de internet (como Chrome, Edge, Firefox) e um dispositivo como celular, computador ou tablet.</p>
+            </div>
+          </div>
+
+          <div class="pergunta">
+            <div class="title_quest">
+              <h3>É preciso saber mexer bem nos aparelhos?</h3>
+              <button class="show">+</button>
+              <!-- <button class="hidden">×</button> -->
+            </div>
+            <div class="resposta">
+                <p>Não. A plataforma é simples e intuitiva. Caso a criança tenha dificuldade, recomendamos auxílio de um responsável nas primeiras utilizações.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="topic">
+          <div class="title-topic1" id="topic4">
+            <img src="../static/assets/imagens/logo-tp4.png" class="" alt="telemarketing">
+            <h2>Suporte e Planos</h2>
+          </div>
+          <div class="pergunta">
+            <div class="title_quest">
+              <h3>Como funciona o suporte aos pais/alunos?</h3>
+              <button class="show">+</button>
+              <!-- <button class="hidden">×</button> -->
+            </div>
+            <div class="resposta">
+                <p>O suporte é oferecido via WhatsApp ou e-mail.
+  Importante: esse suporte é somente para questões técnicas e de funcionamento da plataforma — não respondemos dúvidas de conteúdo por esses canais.</p>
+            </div>
+          </div>
+
+          <div class="pergunta">
+            <div class="title_quest">
+              <h3>Quais são os valores do curso?</h3>
+              <button class="show">+</button>
+              <!-- <button class="hidden">×</button> -->
+            </div>
+            <div class="resposta">
+                <p>Plano anual: R$ 249,99
+
+  Plano semestral: R$ 199,99
+
+  Plano mensal: R$ 49,99
+  Fique atento às promoções sazonais.</p>
+            </div>
+          </div>
+
+          <div class="pergunta">
+            <div class="title_quest">
+              <h3>Qual o objetivo da plataforma?</h3>
+              <button class="show">+</button>
+              <!-- <button class="hidden">×</button> -->
+            </div>
+            <div class="resposta">
+              <p>Nosso objetivo é melhorar o aprendizado de matemática nos anos iniciais e preparar alunos que desejam participar de olimpíadas como a OBMEP Mirim.</p>
+            </div>
+          </div> 
+        </div>
+
+      </section>
+    </main>
+
+    
+    <footer class="footer">
+      <div class="footer-content">
+          <h4>MathUp © 2025</h4>
+          <p>Aprendizado acessível para todas as crianças.</p>
+
+          <div class="footer-links">
+              <a href="{{ url_for('inicio') }}">Início</a>
+              <a href="{{ url_for('inicio') }}#sobre">Sobre</a>
+              <div onclick="openModal()" class="btn">Contato</div>
+              <a href="#">Ajuda</a>
+          </div>
+      </div>
+    </footer>
+
+      <div id="modal-container" class="modal-container">
+        <div class="modal">
+            <button class="fechar" id="fechar">X</button>
+            <h9>Contate-nos para tornar sua experiência MATH UP ainda melhor:</h9>
+            <p class="email">
+              Entre em contato: <a href="mailto:assistencia.mathup@gmail.com">assistencia.mathup@gmail.com</a><br>
+              <a href="mailto: +55 (37) 9 12345678"> +55 (37) 9 12345678</a>
+            </p>
+        </div>
+      </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const botoes = document.querySelectorAll(".show");
+
+        botoes.forEach(botao => {
+          botao.addEventListener("click", () => {
+
+            const resposta = botao.closest(".pergunta").querySelector(".resposta");
+
+            // alterna visibilidade
+            resposta.style.display = resposta.style.display === "block" ? "none" : "block";
+
+            // troca símbolo
+            botao.textContent = botao.textContent === "+" ? "×" : "+";
+          });
+        });
+      });
+    </script>
+
+    <script src="../static/js/script.js"></script>
+  </body>
+  
+
+</html>
