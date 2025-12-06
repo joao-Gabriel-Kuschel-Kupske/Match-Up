@@ -26,15 +26,7 @@
 
         <div class="container">
             <h1>Editar Perfil de {{ user.nome }}</h1>
-
-            {% if mensagem_sucesso %}
-                
-            {% endif %}
-
-            {% if mensagem_erro %}
-                <div style="color: rgb(105, 20, 20);">{{ mensagem_erro }}</div>
-            {% endif %}
-
+        
             <form method="POST" enctype="multipart/form-data" action="{{ url_for('att_perfil_page') }}">
                 
                 <div>
@@ -66,11 +58,21 @@
                     <input type="password" id="senha_atual" name="senha_atual" required>
                 </div>
 
+                {% if mensagem_sucesso %}
+                
+                {% endif %}
+
+                {% if mensagem_erro %}
+                    <div style="color: rgba(255, 0, 0, 0.767); font-weight: 700; font-size: 20px;">{{ mensagem_erro }}</div>
+                {% endif %}
+
                 <div>
                     <a href="{{ url_for('pagcursos') }}" class="btn-voltar">Voltar para Cursos</a>
                     <button type="submit">Salvar Alterações</button>
                 </div>
+            
             </form>
+            
         </div>
 
         <footer>
