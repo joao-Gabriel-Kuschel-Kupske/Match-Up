@@ -1,23 +1,59 @@
-/* Cabeçalho ocupando toda a largura com a imagem centralizada */
-.topo {
-    width: 100%;                 /* Usa toda a largura da tela */
-    display: flex;               /* Permite centralizar elementos */
-    justify-content: center;     /* Centraliza horizontalmente */
-    align-items: center;         /* Alinha verticalmente */
-    padding: 15px 0;             /* Espaçamento interno */
-    background-color: #2b2b2b;   /* Mesma cor do fundo para ficar uniforme */
+header {
+    background-color: #333333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #222221;
 }
 
-/* A imagem mantem o estilo anterior */
+header a {
+    text-decoration: none;
+}
+
+.logout-container {
+    display: inline-block;
+    margin-right: 100px;
+}
+
+#btn-logout {
+    display: flex;
+    flex-direction: column;
+    background-color: #333;
+    border: 1px solid rgb(22, 22, 22);
+    color: white;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+#btn-sair {
+    width: 95px;
+    height: 30px;
+    text-align: center;
+    background-color: rgb(131, 29, 29);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+/* Escondido por padrão */
+.hidden {
+    display: none;
+}
+
 .logo2 {
-    margin: 0;                   /* Removemos margens pois agora centraliza pelo flex */
-    height: 180px;                /* Mantém o tamanho da logo */
-    width: 350px;;
-   
+    margin-left: 20px;
+    margin-top: 17.5px;
+    margin-bottom: 17.5px;
+    height: 90px;
 }
 
 body{
     background-color: #2b2b2b;
+    margin: 0px;
 }
 
 h1{
@@ -60,6 +96,7 @@ button:hover {
 }
 
 .btn-voltar {
+    text-decoration: none;
     background-color: #f3b368;
     color: white;
     border: none;
@@ -78,6 +115,13 @@ button:hover {
 .container {
     margin: 60px; /* afasta de todas as bordas */
     margin-top: 0;
+    margin-bottom: 40px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 footer {

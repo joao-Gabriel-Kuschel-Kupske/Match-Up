@@ -82,6 +82,7 @@ h2 {
 }
 
 input {
+    padding: 16px;
     width: 230px;
     height: 40px;
     background-color: #BDBDBD;

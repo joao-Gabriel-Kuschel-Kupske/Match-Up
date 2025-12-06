@@ -80,6 +80,10 @@ load_initial_users_from_csv()
 def inicio():
    return render_template('index.html')
 
+@app.route('/FAQ')
+def perguntas():
+   return render_template('FAQ.html')
+
 @app.route('/entrar')
 def entrar():
    return redirect(url_for('pagcursos'))
@@ -215,6 +219,7 @@ def logout():
 # ATUALIZAÇÃO DO PERFIL
 # -----------------
 
+# passo 1 ---------------------
 def get_all_users_from_csv():
     rows = []
     if os.path.exists(CSV_FILENAME):
@@ -256,7 +261,7 @@ def handle_profile_picture_upload(file):
             return foto_perfil_path, f"Erro ao fazer upload da foto: {e}"
 
     return foto_perfil_path, None
-
+# passo 2 --------------------- 
 def update_user_in_csv(old_email, new_nome, new_email, new_password, new_foto_perfil):
     all_users = get_all_users_from_csv()
     updated = False
@@ -294,7 +299,7 @@ def update_user_in_csv(old_email, new_nome, new_email, new_password, new_foto_pe
             return False, "Erro desconhecido ao recarregar o perfil após atualização."
 
     return False, "Usuário não encontrado para atualização."
-
+# passo 3 ----------------------------------
 @app.route('/editar_perfil', methods=['GET'])
 @login_required
 def editar_perfil():

@@ -449,7 +449,7 @@ h9{
 }
 
 .plano {
-    background: white;
+    background: #f0f0f0;
     width: 280px;
     padding: 25px;
     border-radius: 12px;
@@ -530,11 +530,15 @@ h9{
 }
 
 .card-av {
-    background: white;
+    background: #f0f0f0;
     width: 280px;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.card-av:hover {
+    transform: scale(1.05);
 }
 
 .texto-av {

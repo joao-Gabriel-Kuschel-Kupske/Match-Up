@@ -1,74 +1,95 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Perfil</title>
-    <link rel="stylesheet" href="../static/css/styleattperfil.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Editar Perfil</title>
+        <link rel="stylesheet" href="../static/css/styleattperfil.css">
     </head>
-
-    <header class="topo">
-    <!-- Imagem centralizada dentro do cabeçalho -->
-    <a href="{{ url_for('inicio') }}">
-        <img src="../static/assets/imagens/logo.png" alt="logo MathUp" class="logo2">
-    </a>
-
-</header>
 
     <body>
 
+        <header>
+            <a href="{{ url_for('entrar') }}">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='assets/imagens/logo4.png') }}" alt="logo MathUp" class="logo2">
+                </div>
+            </a>
+            <div class="logout-container">
+                <button id="btn-logout" type="button">Logout ▼</button>
 
-    <div class="container">
-        <h1>Editar Perfil de {{ user.nome }}</h1>
+                <button class="hidden" id="btn-sair" type="button">
+                    Sair
+                </button>
+            </div>
+        </header>
 
-        {% if mensagem_sucesso %}
-            <div style="color: rgb(33, 102, 33);">{{ mensagem_sucesso }}</div>
-        {% endif %}
+        <div class="container">
+            <h1>Editar Perfil de {{ user.nome }}</h1>
+        
+            <form method="POST" enctype="multipart/form-data" action="{{ url_for('att_perfil_page') }}">
+                
+                <div>
+                    <img src="{{ user.foto_perfil }}" alt="Foto de Perfil" style="width: 100px; height: 100px;">
+                </div>
 
-        {% if mensagem_erro %}
-            <div style="color: rgb(105, 20, 20);">{{ mensagem_erro }}</div>
-        {% endif %}
+                <div>
+                    <label for="foto_perfil">Alterar Foto de Perfil (JPG, PNG, GIF):</label>
+                    <input type="file" id="foto_perfil" name="foto_perfil" accept="image/png, image/jpeg, image/gif">
+                </div>
 
-        <form method="POST" enctype="multipart/form-data" action="{{ url_for('att_perfil_page') }}">
+                <div>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" value="{{ user.nome }}" required>
+                </div>
+
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="{{ user.email }}" required>
+                </div>
+
+                <div>
+                    <label for="nova_senha">Nova Senha (deixe em branco para manter a atual):</label>
+                    <input type="password" id="nova_senha" name="nova_senha">
+                </div>
+
+                <div>
+                    <label for="senha_atual">Confirme sua Senha Atual (Obrigatório para salvar):</label>
+                    <input type="password" id="senha_atual" name="senha_atual" required>
+                </div>
+
+                {% if mensagem_sucesso %}
+                
+                {% endif %}
+
+                {% if mensagem_erro %}
+                    <div style="color: rgba(255, 0, 0, 0.767); font-weight: 700; font-size: 20px;">{{ mensagem_erro }}</div>
+                {% endif %}
+
+                <div>
+                    <a href="{{ url_for('pagcursos') }}" class="btn-voltar">Voltar para Cursos</a>
+                    <button type="submit">Salvar Alterações</button>
+                </div>
             
-            <div>
-                <img src="{{ user.foto_perfil }}" alt="Foto de Perfil" style="width: 100px; height: 100px;">
-            </div>
+            </form>
+            
+        </div>
 
-            <div>
-                <label for="foto_perfil">Alterar Foto de Perfil (JPG, PNG, GIF):</label>
-                <input type="file" id="foto_perfil" name="foto_perfil" accept="image/png, image/jpeg, image/gif">
-            </div>
-
-            <div>
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" value="{{ user.nome }}" required>
-            </div>
-
-            <div>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" value="{{ user.email }}" required>
-            </div>
-
-            <div>
-                <label for="nova_senha">Nova Senha (deixe em branco para manter a atual):</label>
-                <input type="password" id="nova_senha" name="nova_senha">
-            </div>
-
-            <div>
-                <label for="senha_atual">Confirme sua Senha Atual (Obrigatório para salvar):</label>
-                <input type="password" id="senha_atual" name="senha_atual" required>
-            </div>
-
-            <a href="{{ url_for('pagcursos') }}" class="btn-voltar">Voltar para Cursos</a>
-            <button type="submit">Salvar Alterações</button>
-        </form>
-    </div>
-
-            <footer>
+        <footer>
             <p>© 2025 - Todos os direitos reservados</p>
         </footer>
-    
-</body>
 
+        <script>
+            // Alterna mostrar/esconder o botão "Sair"
+            document.getElementById('btn-logout').addEventListener('click', function() {
+                document.getElementById('btn-sair').classList.toggle('hidden');
+            });
+
+            // Ao clicar no botão Sair → ir para a rota logout
+            document.getElementById('btn-sair').addEventListener('click', function() {
+                window.location.href = "{{ url_for('logout') }}";
+            });
+        </script>
+    
+    </body>
 </html>

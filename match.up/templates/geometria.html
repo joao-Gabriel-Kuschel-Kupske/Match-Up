@@ -14,7 +14,7 @@
                 </a>
                 <a href="{{ url_for('area_aluno') }}">
                     <div id="perfil">
-                        <img src="../static/assets/imagens/foto-perfil.png" alt="foto-perfil" class="ft-perfil">
+                         <img src="{{ user.foto_perfil }}" alt="Foto de perfil" class="ft-perfil">
                         <h4>{{ user.nome }}</h4>
                     </div>
                 </a>

@@ -1,0 +1,267 @@
+* [33mc9fee54[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m FAQ-page
+[31m|[m * [33mf43c453[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m arrumando algumas coisas
+[31m|[m * [33m281ce1a[m exclusão dos quadradinhos
+[31m|[m * [33maf73a2b[m ...
+[31m|[m * [33mc82c735[m implementação multiplos e divisores
+[31m|[m * [33md0b0ed9[m divisão euclidiana
+[31m|[m * [33mc41b086[m ativação do pdf geometria
+[31m|[m * [33m7fea225[m ..
+[31m|[m[31m/[m  
+* [33m798b198[m avaliações
+* [33m7205d82[m planos de estudo no index
+* [33m1f753a7[m ft joao
+* [33m1a8fc45[m ..
+* [33mef960f2[m aplicação footers padrão de direitos reservados
+* [33ma5133d3[m ..
+* [33mc2d2c24[m number cellphone
+* [33mf266f38[m página editar perfil
+* [33m34a4563[m style página editar perfil
+* [33m7b20f42[m editar
+* [33m6fbcc60[m .
+* [33mcbb648c[m Final janela modsal contato
+* [33m8f0f67a[m modal
+*   [33m32402c8[m Merge branch 'main' of https://github.com/joao-Gabriel-Kuschel-Kupske/Match-Up
+[33m|[m[34m\[m  
+[33m|[m * [33m5ff6899[m tentativa falha contato
+[33m|[m * [33mf5edc2b[m reorganização
+[33m|[m * [33m7e290f9[m Perguntas frequentes
+* [34m|[m [33me1e34e9[m marge2
+* [34m|[m [33mbce3b56[m marge
+* [34m|[m [33ma826c26[m edição de perfil
+[34m|[m[34m/[m  
+*   [33m02634d3[m Merge branch 'main' of https://github.com/joao-Gabriel-Kuschel-Kupske/Match-Up
+[35m|[m[36m\[m  
+[35m|[m * [33m772a67d[m new-features
+[35m|[m *   [33md06d4a0[m Merge branch 'main' of https://github.com/joao-Gabriel-Kuschel-Kupske/Match-Up
+[35m|[m [1;31m|[m[1;32m\[m  
+[35m|[m [1;31m|[m * [33m4fa68ff[m media avaliações
+[35m|[m * [1;32m|[m [33m1c59175[m atualização
+[35m|[m [1;32m|[m[1;32m/[m  
+[35m|[m *   [33mb8a322b[m Merge branch 'main' of https://github.com/joao-Gabriel-Kuschel-Kupske/Match-Up
+[35m|[m [1;33m|[m[1;34m\[m  
+[35m|[m * [1;34m|[m [33m77b445b[m solve-merge
+* [1;34m|[m [1;34m|[m [33m7e3a3f7[m ..
+* [1;34m|[m [1;34m|[m [33m16fde1a[m tentativa contato
+[1;34m|[m [1;34m|[m[1;34m/[m  
+[1;34m|[m[1;34m/[m[1;34m|[m   
+* [1;34m|[m [33m6324ca0[m .
+* [1;34m|[m [33m71c1b14[m ..
+[1;35m|[m[1;34m\[m[1;34m|[m 
+[1;35m|[m * [33m75af65f[m Star-avalue
+[1;35m|[m * [33mf9700f2[m add-foto-amanda-no-index
+[1;35m|[m * [33mde927c8[m certificados-opção-de-salvar
+[1;35m|[m * [33m5725a4c[m acess-mobile
+[1;35m|[m * [33mf27d52d[m style-perfil
+* [1;36m|[m [33m50e67e8[m ..
+[1;36m|[m[1;36m/[m  
+*   [33m1ec6f0a[m .
+[31m|[m[32m\[m  
+[31m|[m * [33mc726b81[m rotas_e_erros
+[31m|[m * [33m49b7c04[m App-py-j
+[31m|[m * [33mef825c6[m style-pag-changed
+[31m|[m * [33m2652213[m add-pdf-fração-para-mvp
+[31m|[m * [33m9a7912a[m tentando implementar o login
+[31m|[m * [33m061aa89[m solve-bugs
+[31m|[m * [33m608f80e[m Add copyright notice to LICENSE file
+[31m|[m * [33me65919b[m delete-license
+[31m|[m * [33m5905701[m Add MIT License to the project
+[31m|[m *   [33m8cb1d9b[m Merge branch 'main' of https://github.com/joao-Gabriel-Kuschel-Kupske/Match-Up
+[31m|[m [33m|[m[34m\[m  
+[31m|[m * [34m|[m [33mf87cc64[m bugs-geral
+* [34m|[m [34m|[m [33mb317cc2[m ...
+[34m|[m [34m|[m[34m/[m  
+[34m|[m[34m/[m[34m|[m   
+* [34m|[m [33m8ece4fe[m criação dos botões
+* [34m|[m [33maf38a83[m botoes pag cursos
+* [34m|[m [33mf2b9f94[m tentativa-debbug-pagcursos-flask
+[34m|[m[34m/[m  
+* [33m58908d2[m class-pages
+* [33m38e1960[m add-pages
+* [33me609faf[m solve-bug
+* [33ma4b7fd7[m fração-page
+* [33m8505943[m anm-btn's
+*   [33m9a72698[m Merge branch 'main' of https://github.com/joao-Gabriel-Kuschel-Kupske/Match-Up.
+[35m|[m[36m\[m  
+[35m|[m * [33m10379f5[m .
+[35m|[m * [33m71a0f8e[m section class
+[35m|[m * [33m08414fa[m botão
+* [36m|[m [33mc8b589b[m tentativadedebug-pagcursos
+[36m|[m[36m/[m  
+* [33m9a6c45c[m debugg-aula-flask
+* [33m377d00f[m debugg-pagcursos
+* [33m1a017c0[m debugg-aula-flask
+* [33m1931d3b[m ..
+* [33m6941e4f[m Alterações css index
+* [33m0b805ba[m fonte
+* [33m9d2d43b[m teste
+* [33me2da4b7[m teste 2
+* [33m539bf47[m teste
+* [33m1094f73[m weight
+*   [33m39f3e94[m ...
+[1;31m|[m[1;32m\[m  
+[1;31m|[m * [33m0d88d39[m aces-mobile
+[1;31m|[m * [33m3a05719[m solve-bug-index
+[1;31m|[m * [33m348776c[m cadastro-login
+[1;31m|[m * [33m39e6c1f[m solve-bug
+[1;31m|[m * [33m6137945[m teate-pagcursos-3
+[1;31m|[m * [33m0d1ba10[m teste-pagcursos-agora-vai
+[1;31m|[m * [33m49159e1[m teste-pagcursos
+[1;31m|[m * [33m5905b7d[m teste-de-pdfs
+[1;31m|[m * [33m4a5b138[m conserto-de-rotas-apaga-cursos-arruma-pagcursos-com-flask
+[1;31m|[m *   [33mc1f0f30[m Merge branch 'main' of https://github.com/joao-Gabriel-Kuschel-Kupske/Match-Up.
+[1;31m|[m [1;33m|[m[1;34m\[m  
+[1;31m|[m [1;33m|[m * [33m073d8f5[m rota perfil
+[1;31m|[m [1;33m|[m * [33m7144002[m figma-design
+[1;31m|[m [1;33m|[m * [33mbbaa39b[m search-color
+[1;31m|[m * [1;34m|[m [33maa76201[m deletar-pag-n-usadas
+[1;31m|[m * [1;34m|[m [33m053174a[m add aulas em aulas
+[1;31m|[m * [1;34m|[m [33m7d746a2[m comentarios_sobre_flask_no_html
+* [1;34m|[m [1;34m|[m [33mf76c67a[m ajuste de tamanho das img principios
+[1;34m|[m [1;34m|[m[1;34m/[m  
+[1;34m|[m[1;34m/[m[1;34m|[m   
+* [1;34m|[m [33md54a662[m ..
+* [1;34m|[m [33m7b18d14[m imagens da ana
+* [1;34m|[m [33ma787b37[m imagens documento da ana
+* [1;34m|[m [33m096db94[m quem somos nos
+* [1;34m|[m [33mfef58d9[m seção sobre finalização
+* [1;34m|[m [33m8cde497[m div
+* [1;34m|[m [33m8f1a2cc[m ...
+* [1;34m|[m [33m6693077[m px
+* [1;34m|[m [33me1eb03e[m ...
+* [1;34m|[m [33ma43c28b[m ..
+* [1;34m|[m [33mf36fbce[m h5
+* [1;34m|[m   [33m82428d9[m Merge branch 'main' of https://github.com/joao-Gabriel-Kuschel-Kupske/Match-Up
+[1;35m|[m[1;36m\[m [1;34m\[m  
+[1;35m|[m * [1;34m|[m [33m074adb3[m uptade-perfil
+* [1;36m|[m [1;34m|[m [33mf03d018[m css
+[1;36m|[m[1;36m/[m [1;34m/[m  
+* [1;34m|[m [33m4e4d3da[m p
+* [1;34m|[m [33mc5999b3[m .
+* [1;34m|[m [33m74a3e1d[m teste
+* [1;34m|[m [33m3bb8343[m return
+* [1;34m|[m [33m54d7fb9[m principios
+* [1;34m|[m [33mf75e995[m backcolor
+* [1;34m|[m [33me8065c0[m .
+* [1;34m|[m [33mf2cc3fa[m .
+* [1;34m|[m [33m475ae02[m .
+* [1;34m|[m [33m3a6f8a5[m class principios
+* [1;34m|[m [33m9495952[m .
+* [1;34m|[m [33mc5691f0[m ..
+* [1;34m|[m [33me516823[m px
+* [1;34m|[m [33mca6abf0[m 14
+* [1;34m|[m [33ma3f1d7f[m sobre nós
+* [1;34m|[m [33m6ecf2f1[m sobre
+* [1;34m|[m [33m1865b80[m borda do botão
+* [1;34m|[m [33m90d1ff8[m botão
+* [1;34m|[m [33m6262998[m size
+* [1;34m|[m [33m66c4460[m size
+* [1;34m|[m [33m5236c92[m color
+* [1;34m|[m [33m2a7146a[m texto topo
+* [1;34m|[m [33mbe42a88[m 50vh
+* [1;34m|[m [33mc7478e8[m size
+* [1;34m|[m   [33m97d7bf8[m Merge branch 'main' of https://github.com/joao-Gabriel-Kuschel-Kupske/Match-Up
+[31m|[m[32m\[m [1;34m\[m  
+[31m|[m * [1;34m|[m [33m45b11a3[m css.pagcursos
+[31m|[m * [1;34m|[m   [33m875b932[m Merge branch 'main' of https://github.com/joao-Gabriel-Kuschel-Kupske/Match-Up
+[31m|[m [33m|[m[34m\[m [1;34m\[m  
+[31m|[m [33m|[m * [1;34m|[m [33m16cca04[m alguma coisa
+[31m|[m * [34m|[m [1;34m|[m [33mf6fe1d6[m index
+[31m|[m [34m|[m[34m/[m [1;34m/[m  
+[31m|[m * [1;34m|[m   [33m21fcd44[m Merge branch 'main' of https://github.com/joao-Gabriel-Kuschel-Kupske/Match-Up
+[31m|[m [35m|[m[36m\[m [1;34m\[m  
+[31m|[m * [36m|[m [1;34m|[m [33m2421b60[m sla oq eh isso
+[31m|[m * [36m|[m [1;34m|[m [33m993d741[m ana
+[31m|[m * [36m|[m [1;34m|[m [33mb1b464a[m ana pag cursos
+[31m|[m * [36m|[m [1;34m|[m [33ma7d5253[m ana
+* [36m|[m [36m|[m [1;34m|[m [33m6f87cbf[m troquei a imagem de fundo
+[36m|[m [36m|[m[36m/[m [1;34m/[m  
+[36m|[m[36m/[m[36m|[m [1;34m|[m   
+* [36m|[m [1;34m|[m [33mf27a623[m ..
+* [36m|[m [1;34m|[m [33m72230ab[m .
+* [36m|[m [1;34m|[m [33mdc7518a[m .
+* [36m|[m [1;34m|[m [33mf2f3f7c[m ..
+* [36m|[m [1;34m|[m [33mf63076f[m .
+* [36m|[m [1;34m|[m [33m39439d2[m .
+* [36m|[m [1;34m|[m [33mf80e699[m back image
+* [36m|[m [1;34m|[m [33m9f1459a[m Atualizando app.py, dados.csv, styleindex.css e adicionando novas páginas
+* [36m|[m [1;34m|[m [33m1af4a08[m .
+[36m|[m[36m/[m [1;34m/[m  
+* [1;34m|[m [33mb653257[m ana
+* [1;34m|[m [33mdd4040d[m ana
+[1;34m|[m[1;34m/[m  
+*   [33mc9b43a1[m Merge branch 'main' of https://github.com/joao-Gabriel-Kuschel-Kupske/Match-Up
+[1;31m|[m[1;32m\[m  
+[1;31m|[m * [33m60024ab[m pdf aulas flask
+[1;31m|[m * [33m3e42001[m página de cursos base flask
+[1;31m|[m * [33m803a839[m aula.html: template para todas as aulas com base no pdf
+* [1;32m|[m [33m8d33015[m isa e ana
+[1;32m|[m[1;32m/[m  
+* [33m5ee8d60[m ,
+* [33m45825ec[m ..
+* [33mb8e9d4f[m .
+* [33m546bbdf[m .
+* [33m089d4f1[m .
+* [33m75a9b09[m .
+* [33mdfcd2f7[m teste
+* [33m9675eff[m m
+* [33m334923a[m .
+* [33m3a444a0[m login
+* [33me6559de[m .
+* [33m555ae83[m botões
+* [33m0e65d5a[m ..
+* [33m1bbfe03[m ..
+* [33m081cf55[m detalhe
+* [33m4d1254f[m ..
+* [33mcc41f9e[m botão css
+* [33mfc88484[m botão login
+* [33me6b9f50[m button
+* [33m79a8e15[m h3
+* [33ma11c725[m size
+* [33mf1426b1[m css
+* [33mbec9e27[m principios
+* [33m4e6872b[m text aligment
+* [33m3a18086[m ...
+* [33mf6960b6[m ..
+* [33m07f2af9[m tentativa
+*   [33m94b4c80[m Merge branch 'main' of https://github.com/joao-Gabriel-Kuschel-Kupske/Match-Up
+[1;33m|[m[1;34m\[m  
+[1;33m|[m * [33m240855b[m Readme update
+* [1;34m|[m [33m6fc4324[m cor
+[1;34m|[m[1;34m/[m  
+* [33m5606955[m teste
+* [33m5db64cd[m Tirar o ponto
+* [33mbaa3a3d[m back dando certo
+* [33mf6e0734[m dot
+* [33m6a3b8f9[m .
+* [33m4576349[m background
+*   [33m0c25897[m Merge branch 'main' of https://github.com/joao-Gabriel-Kuschel-Kupske/Match-Up.
+[1;35m|[m[1;36m\[m  
+[1;35m|[m * [33ma0d06c4[m criação dos arquivos de css
+* [1;36m|[m [33me29872b[m back_index e login
+[1;36m|[m[1;36m/[m  
+*   [33ma165828[m Merge branch 'main' of https://github.com/joao-Gabriel-Kuschel-Kupske/Match-Up.
+[31m|[m[32m\[m  
+[31m|[m * [33m32e468f[m backgroud image
+* [32m|[m [33m3a26d01[m back_pagina de login
+[32m|[m[32m/[m  
+* [33me521238[m css da classe cima
+* [33mfbdf892[m header
+* [33md2196d4[m back_e_paginas_de_aulas
+* [33mad1c03b[m alterações
+* [33m22674c9[m arrumando um erro
+* [33m4b29b61[m separação em topos
+* [33m66cc12c[m ligação do css index
+* [33m46184a4[m renomear css
+* [33m864ab3f[m separação em classes por fundo
+* [33m7c0d78a[m index
+* [33mb4db5ff[m imagens
+* [33m1ca349b[m add imagens
+* [33m3728e4e[m add imagem1
+* [33m47e3dd9[m testeindex
+* [33mbb27b49[m começou _o_back
+* [33m7e09a10[m inicioo
+* [33m9f7c00c[m começo
+* [33md619b46[m atualização
+* [33m08e0f97[m começando
+* [33m8a4eff6[m iniciação
+* [33me098706[m Initial commit
