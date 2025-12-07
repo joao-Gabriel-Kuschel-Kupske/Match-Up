@@ -5,14 +5,14 @@ import os
 from datetime import datetime
 from uuid import uuid4
 
-# -----------------
-# CONFIGURAÇÕES
-# -----------------
+# ===============================================
+# 1. CONFIGURAÇÕES INICIAIS E VARIÁVEIS GLOBAIS
+# ===============================================
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'chave_secreta_necessaria'
 
-# Configurações de upload
+# Configurações de upload de foto de perfil
 UPLOAD_FOLDER = 'static/uploads/perfil_fotos'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -20,22 +20,28 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
+# Inicialização do Flask-Login
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'formulario_login'
 
+# Variáveis de arquivo e dados
 CSV_FILENAME = 'usuarios.csv'
 AVALIACAO_FILENAME = 'avaliacao.csv'
 USERS = {}
-DEFAULT_PHOTO_PATH = '/static/assets/imagens/foto-perfil.png' # NOVO CAMINHO PADRÃO
+DEFAULT_PHOTO_PATH = '/static/assets/imagens/foto-perfil.png' # Caminho padrão para fotos de perfil
 
-# Funções utilitárias
+# ===============================================
+# 2. CLASSE E UTILITÁRIOS DO USUÁRIO (FLASK-LOGIN)
+# ===============================================
 
 def allowed_file(filename):
+    """Verifica se a extensão do arquivo é permitida para upload."""
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 class User(UserMixin):
+    """Modelo de usuário para Flask-Login, carregando todos os dados do CSV."""
     def __init__(self, id, nome, email, password, foto_perfil=DEFAULT_PHOTO_PATH):
         self.id = id
         self.nome = nome
@@ -44,12 +50,14 @@ class User(UserMixin):
         self.foto_perfil = foto_perfil
 
 def ensure_csv_header():
+    """Garante que o arquivo de usuários exista e tenha o cabeçalho correto."""
     if not os.path.exists(CSV_FILENAME) or os.path.getsize(CSV_FILENAME) == 0:
         with open(CSV_FILENAME, mode='w', newline='', encoding='utf-8') as file:
             writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(['data_registro', 'nome', 'email', 'senha', 'foto_perfil'])
 
 def load_initial_users_from_csv():
+    """Carrega todos os usuários do CSV para a memória (variável USERS)."""
     global USERS
     USERS.clear()
     ensure_csv_header()
@@ -59,6 +67,7 @@ def load_initial_users_from_csv():
                 reader = csv.reader(file)
                 next(reader, None) # Pula o cabeçalho
                 for i, row in enumerate(reader, start=1):
+                    # O tratamento verifica se o campo foto_perfil existe na linha
                     data_registro, nome, email, senha = row[0:4]
                     foto_perfil = row[4] if len(row) > 4 else DEFAULT_PHOTO_PATH
                     user_id = str(i)
@@ -68,84 +77,103 @@ def load_initial_users_from_csv():
 
 @login_manager.user_loader
 def load_user(user_id):
+    """Função obrigatória do Flask-Login: carrega o usuário pelo ID da sessão."""
     return USERS.get(user_id)
 
+# Carrega os usuários na inicialização do app
 load_initial_users_from_csv()
 
-# -----------------------------------
-# TODAS AS ROTAS PARA ACESSAR PAGINAS
-# -----------------------------------
+# ===============================================
+# 3. ROTAS DE NAVEGAÇÃO BÁSICA E AULAS
+# ===============================================
 
 @app.route('/')
 def inicio():
+   """Página inicial/landing page."""
    return render_template('index.html')
 
 @app.route('/FAQ')
 def perguntas():
+   """Página de Perguntas Frequentes."""
    return render_template('FAQ.html')
 
 @app.route('/entrar')
 def entrar():
+   """Redireciona para a área de cursos após o login."""
    return redirect(url_for('pagcursos'))
 
 @app.route('/formulario_cadastro')
 def formulario():
+   """Exibe o formulário de cadastro de novo usuário."""
    return render_template('cadastro.html')
 
 @app.route('/area_aluno')
 @login_required
 def area_aluno():
+   """Redireciona para a visualização do perfil após o login."""
    return redirect(url_for('editar_perfil'))
 
 @app.route("/pagcursos")
 @login_required
 def pagcursos():
+    """Dashboard principal de cursos."""
     return render_template("pagcursos.html", user=current_user)
 
-# Funções auxiliares para módulos de aula
+# --- Funções auxiliares para dados de módulos ---
+
 def get_media_data(col_key):
+    """Busca a média e o total de avaliações para uma chave de módulo específica."""
     medias = calcular_medias_por_categoria()
     return medias.get(col_key, {'media': 0.0, 'total': 0})
+
+# --- Rotas de Aulas (Injetam a média do módulo no template) ---
 
 @app.route('/fração-class')
 @login_required
 def aula_fra():
+    """Página da aula de Fração."""
     dados_fracao = get_media_data('Av_f')
     return render_template('fracao.html', user=current_user, media_modulo=dados_fracao['media'], total_modulo=dados_fracao['total'])
 
 @app.route('/múltiplos-e-divisores-class')
 @login_required
 def aula_mult_e_div():
+    """Página da aula de Múltiplos e Divisores."""
     dados_modulo = get_media_data('Av_m')
     return render_template('mult-e-div.html', user=current_user, media_modulo=dados_modulo['media'], total_modulo=dados_modulo['total'])
 
 @app.route('/equação-de-1°-grau-class')
 @login_required
 def aula_1_equa():
+    """Página da aula de Equação de 1° Grau."""
     dados_modulo = get_media_data('Av_e')
     return render_template('1equacao.html', user=current_user, media_modulo=dados_modulo['media'], total_modulo=dados_modulo['total'])
 
 @app.route('/ângulos-class')
 @login_required
 def aula_ang():
+    """Página da aula de Ângulos."""
     dados_modulo = get_media_data('Av_a')
     return render_template('angulos.html', user=current_user, media_modulo=dados_modulo['media'], total_modulo=dados_modulo['total'])
 
 @app.route('/geometria-class')
 @login_required
 def aula_geom():
+    """Página da aula de Geometria."""
     dados_modulo = get_media_data('Av_g')
     return render_template('geometria.html', user=current_user, media_modulo=dados_modulo['media'], total_modulo=dados_modulo['total'])
 
 @app.route('/sistema-numérico-class')
 @login_required
 def aula_sisenum():
+    """Página da aula de Sistema Numérico."""
     dados_modulo = get_media_data('Av_s')
     return render_template('sisenum.html', user=current_user, media_modulo=dados_modulo['media'], total_modulo=dados_modulo['total'])
 
 @app.route('/media_avaliacoes')
 @login_required
 def media_avaliacoes():
+    """Página que exibe a média de avaliação de todos os módulos do curso."""
     medias_por_categoria = calcular_medias_por_categoria()
     nomes_amigaveis = {
         'Av_f': 'Fração', 'Av_s': 'Sistema Numérico', 'Av_e': 'Equação de 1° Grau',
@@ -153,12 +181,13 @@ def media_avaliacoes():
     }
     return render_template('media_avaliacoes.html', medias=medias_por_categoria, nomes=nomes_amigaveis)
 
-# -----------------
-# CADASTRO
-# -----------------
+# ===============================================
+# 4. ROTAS DE AUTENTICAÇÃO
+# ===============================================
 
 @app.route('/salvar_dados', methods=['POST'])
 def salvar_dados():
+    """Processa o formulário de cadastro e salva o novo usuário no CSV."""
     try:
         nome = request.form.get('nome', '').strip()
         email = request.form.get('email', '').strip()
@@ -172,13 +201,15 @@ def salvar_dados():
             return f"ERRO: O e-mail {email} já está cadastrado.", 400
 
         ensure_csv_header()
-
-        foto_perfil_default = DEFAULT_PHOTO_PATH # NOVO CAMINHO PADRÃO APLICADO
+        
+        # Atribui o caminho padrão da foto no momento do cadastro.
+        foto_perfil_default = DEFAULT_PHOTO_PATH 
 
         with open(CSV_FILENAME, mode='a', newline='', encoding='utf-8') as file:
             writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             writer.writerow([data_registro, nome, email, senha, foto_perfil_default])
 
+        # Recarrega a lista USERS para incluir o novo usuário
         load_initial_users_from_csv()
 
         return redirect(url_for('formulario_login'))
@@ -187,13 +218,9 @@ def salvar_dados():
         print(f"ERRO ao salvar no CSV: {e}")
         return f"Ocorreu um erro interno ao salvar seu cadastro: {e}", 500
 
-# -----------------
-# LOGIN
-# -----------------
-
 @app.route('/formulario_login', methods=['GET', 'POST'])
 def formulario_login():
-
+    """Lida com a exibição do formulário de login (GET) e processamento (POST)."""
     if request.method == 'POST':
         email_input = request.form.get('email', '').strip()
         senha_input = request.form.get('senha', '').strip()
@@ -212,15 +239,16 @@ def formulario_login():
 @app.route("/logout")
 @login_required
 def logout():
+    """Encerra a sessão do usuário logado."""
     logout_user()
     return redirect(url_for('inicio'))
 
-# -----------------
-# ATUALIZAÇÃO DO PERFIL
-# -----------------
+# ===============================================
+# 5. ATUALIZAÇÃO DO PERFIL (CRUD)
+# ===============================================
 
-# passo 1 ---------------------
 def get_all_users_from_csv():
+    """Função Auxiliar: Lê todos os dados de usuários do CSV em uma lista de dicionários."""
     rows = []
     if os.path.exists(CSV_FILENAME):
         with open(CSV_FILENAME, mode='r', newline='', encoding='utf-8') as file:
@@ -230,6 +258,10 @@ def get_all_users_from_csv():
     return rows
 
 def handle_profile_picture_upload(file):
+    """
+    Função Auxiliar: Processa o upload de uma nova foto de perfil.
+    Salva o novo arquivo, deleta a foto antiga (se não for a padrão) e retorna o novo caminho.
+    """
     foto_perfil_path = current_user.foto_perfil
 
     if file and file.filename != '' and allowed_file(file.filename):
@@ -240,15 +272,16 @@ def handle_profile_picture_upload(file):
 
             file.save(filepath)
 
+            # Define o novo caminho para salvar no CSV
             new_path = f'/static/uploads/perfil_fotos/{filename}'
 
-            # NOVO CAMINHO PADRÃO APLICADO
+            # Lógica para deletar a foto antiga (se não for a foto padrão)
             default_path = DEFAULT_PHOTO_PATH
             if current_user.foto_perfil and current_user.foto_perfil != default_path:
                 try:
                     old_filename = current_user.foto_perfil.split('/')[-1]
                     # Garante que o arquivo a ser deletado está na pasta correta de UPLOAD
-                    if old_filename != 'foto-perfil.png': 
+                    if old_filename != 'foto-perfil.png': # Evita deletar o arquivo padrão por engano
                         old_filepath = os.path.join(app.config['UPLOAD_FOLDER'], old_filename)
                         if os.path.exists(old_filepath):
                             os.remove(old_filepath)
@@ -261,34 +294,44 @@ def handle_profile_picture_upload(file):
             return foto_perfil_path, f"Erro ao fazer upload da foto: {e}"
 
     return foto_perfil_path, None
-# passo 2 --------------------- 
+
 def update_user_in_csv(old_email, new_nome, new_email, new_password, new_foto_perfil):
+    """
+    Função Auxiliar: Atualiza os dados do usuário (nome, email, senha, foto) no CSV.
+    Retorna (True, mensagem_sucesso) ou (False, mensagem_erro).
+    """
     all_users = get_all_users_from_csv()
     updated = False
 
     for user_data in all_users:
         if user_data['email'].lower() == old_email.lower():
+            # Verifica se o novo email já está em uso por outro usuário
             if new_email.lower() != old_email.lower() and any(
                 u['email'].lower() == new_email.lower() for u in all_users if u['email'].lower() != old_email.lower()
             ):
                 return False, "ERRO: O novo e-mail já está em uso por outro usuário."
 
+            # Atualiza os dados na lista em memória
             user_data['nome'] = new_nome
             user_data['email'] = new_email
+            # A senha só é atualizada se uma nova for fornecida
             user_data['senha'] = new_password if new_password else user_data['senha']
             user_data['foto_perfil'] = new_foto_perfil
             updated = True
             break
 
     if updated:
+        # Reescreve o CSV com a lista atualizada
         fieldnames = ['data_registro', 'nome', 'email', 'senha', 'foto_perfil']
         with open(CSV_FILENAME, mode='w', newline='', encoding='utf-8') as file:
             writer = csv.DictWriter(file, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(all_users)
 
+        # Recarrega a lista global de usuários USERS
         load_initial_users_from_csv()
 
+        # Faz o login do usuário novamente para atualizar current_user com os novos dados
         user_reloaded = next((user for user in USERS.values()
                            if user.email.lower() == new_email.lower()), None)
 
@@ -299,10 +342,15 @@ def update_user_in_csv(old_email, new_nome, new_email, new_password, new_foto_pe
             return False, "Erro desconhecido ao recarregar o perfil após atualização."
 
     return False, "Usuário não encontrado para atualização."
-# passo 3 ----------------------------------
+
 @app.route('/editar_perfil', methods=['GET'])
 @login_required
 def editar_perfil():
+    """
+    Página de Visualização do Perfil.
+    => Navegação: Acessada via link na área do aluno ou após uma atualização bem-sucedida.
+    => Função: Exibe o nome atual, e-mail e foto, servindo como uma visão geral.
+    """
     mensagem = request.args.get('mensagem_sucesso')
     erro = request.args.get('mensagem_erro')
     return render_template('perfil.html', user=current_user, mensagem_sucesso=mensagem, mensagem_erro=erro)
@@ -310,22 +358,30 @@ def editar_perfil():
 @app.route("/atualizap", methods=['GET', 'POST'])
 @login_required
 def att_perfil_page():
+    """
+    Página de Edição do Perfil.
+    => Navegação: Acessada através de um botão de "Editar" na página editar_perfil.
+    => Função: Lida com a submissão do formulário de atualização, incluindo a troca de foto e a validação da senha.
+    """
     if request.method == 'POST':
         novo_nome = request.form.get('nome', '').strip()
         novo_email = request.form.get('email', '').strip()
         nova_senha = request.form.get('nova_senha', '').strip()
         senha_atual_confirmacao = request.form.get('senha_atual', '').strip()
 
+        # 1. Validação de Senha Atual
         if senha_atual_confirmacao != current_user.password:
             erro = "A senha atual fornecida está incorreta."
             return render_template('att_perfil.html', user=current_user, mensagem_erro=erro)
 
+        # 2. Processamento do Upload da Foto
         foto_file = request.files.get('foto_perfil')
         foto_perfil_path, upload_erro = handle_profile_picture_upload(foto_file)
 
         if upload_erro:
             return render_template('att_perfil.html', user=current_user, mensagem_erro=upload_erro)
 
+        # 3. Atualização no CSV e Recarregamento
         sucesso, resultado_msg = update_user_in_csv(
             current_user.email,
             novo_nome,
@@ -334,11 +390,15 @@ def att_perfil_page():
             foto_perfil_path
         )
 
+        # 4. Resposta ao Usuário
         if sucesso:
+            # Redireciona para a página de visualização do perfil com mensagem de sucesso
             return redirect(url_for('editar_perfil', mensagem_sucesso=resultado_msg))
         else:
+            # Permanece na página de edição com mensagem de erro
             return render_template('att_perfil.html', user=current_user, mensagem_erro=resultado_msg)
 
+    # Exibe o formulário de edição (método GET)
     return render_template(
         "att_perfil.html",
         user=current_user,
@@ -346,23 +406,26 @@ def att_perfil_page():
         mensagem_erro=request.args.get('mensagem_erro')
     )
 
-# -----------------
-# AVALIAÇÃO
-# -----------------
+# ===============================================
+# 6. AVALIAÇÃO (Persistência no CSV)
+# ===============================================
 
 def ensure_avaliacao_header():
+    """Garante que o arquivo de avaliações exista e tenha o cabeçalho correto."""
     if not os.path.exists(AVALIACAO_FILENAME) or os.path.getsize(AVALIACAO_FILENAME) == 0:
         with open(AVALIACAO_FILENAME, mode='w', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
             writer.writerow(['data_registro', 'nome', 'email', 'Av_f', 'Av_s', 'Av_e', 'Av_a', 'Av_g', 'Av_m'])
 
 def atualizar_avaliacao(coluna, rating):
+    """Lê o CSV, atualiza a nota do usuário logado para a coluna/módulo e reescreve o arquivo."""
     data_registro = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     ensure_avaliacao_header()
 
     rows = []
     updated = False
 
+    # 1. Leitura e Modificação em memória
     with open(AVALIACAO_FILENAME, mode='r', newline='', encoding='utf-8') as file:
         reader = csv.DictReader(file)
         for row in reader:
@@ -372,6 +435,7 @@ def atualizar_avaliacao(coluna, rating):
                 updated = True
             rows.append(row)
 
+    # 2. Criação de nova linha (se for a primeira avaliação do usuário)
     if not updated:
         nova_linha = {
             'data_registro': data_registro, 'nome': current_user.nome, 'email': current_user.email,
@@ -380,11 +444,14 @@ def atualizar_avaliacao(coluna, rating):
         nova_linha[coluna] = rating
         rows.append(nova_linha)
 
+    # 3. Reescreve todo o arquivo
     with open(AVALIACAO_FILENAME, mode='w', newline='', encoding='utf-8') as file:
         fieldnames = ['data_registro','nome','email','Av_f','Av_s','Av_e','Av_a','Av_g','Av_m']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
+
+# --- Rotas de Submissão de Avaliação (Chamam atualizar_avaliacao) ---
 
 @app.route('/avaliar_fra', methods=['POST'])
 @login_required
@@ -428,11 +495,12 @@ def avaliar_mult_div():
     atualizar_avaliacao('Av_m', rating)
     return redirect(url_for('aula_mult_e_div'))
 
-# -----------------------
-# MEDIA AVALIAÇÃO
-# -----------------------
+# ===============================================
+# 7. CÁLCULO DA MÉDIA GERAL
+# ===============================================
 
 def calcular_medias_por_categoria():
+    """Calcula a média de avaliação (rating) de todos os módulos de todas as linhas do CSV."""
     colunas_avaliacao = ['Av_f', 'Av_s', 'Av_e', 'Av_a', 'Av_g', 'Av_m']
     dados_por_categoria = {col: {'soma': 0, 'total': 0} for col in colunas_avaliacao}
 
@@ -453,6 +521,7 @@ def calcular_medias_por_categoria():
                             dados_por_categoria[coluna]['soma'] += pontuacao
                             dados_por_categoria[coluna]['total'] += 1
                         except ValueError:
+                            # Ignora se a pontuação não for um número válido (dados corrompidos)
                             continue
 
             resultados_finais = {}
@@ -460,6 +529,7 @@ def calcular_medias_por_categoria():
                 soma = dados['soma']
                 total = dados['total']
 
+                # Evita divisão por zero
                 media = round(soma / total, 1) if total > 0 else 0.0
 
                 resultados_finais[coluna] = {'media': media, 'total': total}
@@ -469,10 +539,11 @@ def calcular_medias_por_categoria():
     except IOError:
         return {col: {'media': 0.0, 'total': 0} for col in colunas_avaliacao}
 
-# -----------------
-# EXECUÇÃO
-# -----------------
+# ===============================================
+# 8. EXECUÇÃO
+# ===============================================
 
 if __name__ == '__main__':
+    # Garante que o arquivo de avaliação exista antes de iniciar o servidor
     ensure_avaliacao_header()
     app.run(debug=True)
