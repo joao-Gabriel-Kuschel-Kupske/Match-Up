@@ -214,11 +214,11 @@
               <!-- <button class="hidden">×</button> -->
             </div>
             <div class="resposta">
-                <p>Plano anual: R$ 249,99
+                <p>Plano Básico: R$ 9,90.
 
-  Plano semestral: R$ 199,99
+  Plano Premium: R$ 19,90.
 
-  Plano mensal: R$ 49,99
+  Plano PRO: R$ 39,90.
   Fique atento às promoções sazonais.</p>
             </div>
           </div>
@@ -270,14 +270,24 @@
 
         botoes.forEach(botao => {
           botao.addEventListener("click", () => {
+            const pergunta = botao.closest(".pergunta");
+            const resposta = pergunta.querySelector(".resposta");
 
-            const resposta = botao.closest(".pergunta").querySelector(".resposta");
+            document.querySelectorAll(".resposta").forEach(r => {
+              if (r !== resposta) {
+                r.style.display = "none";
+              }
+            });
 
-            // alterna visibilidade
-            resposta.style.display = resposta.style.display === "block" ? "none" : "block";
+            document.querySelectorAll(".show").forEach(b => {
+              if (b !== botao) {
+                b.textContent = "+";
+              }
+            });
 
-            // troca símbolo
-            botao.textContent = botao.textContent === "+" ? "×" : "+";
+            const aberta = resposta.style.display === "block";
+            resposta.style.display = aberta ? "none" : "block";
+            botao.textContent = aberta ? "+" : "×";
           });
         });
       });

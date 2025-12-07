@@ -238,6 +238,50 @@ section p {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+.certificado {
+  position: relative;
+  display: inline-block;
+}
+
+.certificado img {
+  width: 200px;
+  border-radius: 8px;
+}
+
+.certificado .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.cadeado {
+  font-size: 48px;
+  color: white;
+}
+
+.certificado.desbloqueado .overlay {
+  display: none;
+}
+
+.certificado.bloqueado a {
+  pointer-events: none;
+  cursor: not-allowed;
+  filter: grayscale(30%);
+}
+
+.certificado.desbloqueado .overlay {
+  display: none; 
+}
+
+.certificado.desbloqueado a {
+  pointer-events: auto; cursor: pointer;
+}
+
 footer {
   position: static;       
   width: 100%;           
