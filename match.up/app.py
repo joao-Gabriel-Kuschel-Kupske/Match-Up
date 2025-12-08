@@ -202,10 +202,13 @@ def salvar_dados():
 
         if not nome or not email or not senha:
             flash("Todos os campos são obrigatórios.", 'error')
+            # Redireciona para a página de cadastro em caso de campos vazios
             return redirect(url_for('formulario'))
 
         if any(user.email.lower() == email.lower() for user in USERS.values()):
-            flash(f"O e-mail {email} já está cadastrado.", 'error')
+            # MUDANÇA AQUI: Mensagem mais clara para o usuário tentar o login
+            flash(f"O e-mail {email} já está cadastrado. Tente fazer login.", 'error')
+            # Redireciona para a página de cadastro, onde a mensagem será exibida
             return redirect(url_for('formulario'))
 
         ensure_csv_header()
@@ -220,11 +223,13 @@ def salvar_dados():
         load_initial_users_from_csv()
 
         flash("Cadastro realizado com sucesso! Faça login.", 'success')
+        # LINHA CORRETA: Redireciona para a página de login
         return redirect(url_for('formulario_login'))
 
     except Exception as e:
         print(f"ERRO ao salvar no CSV: {e}")
         flash(f"Ocorreu um erro interno ao salvar seu cadastro.", 'error')
+        # Redireciona para a página de cadastro em caso de erro no servidor
         return redirect(url_for('formulario'))
 
 @app.route('/formulario_login', methods=['GET', 'POST'])
