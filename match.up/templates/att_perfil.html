@@ -82,9 +82,8 @@
         <script>
             // Alterna mostrar/esconder o botão "Sair"
             document.getElementById('btn-logout').addEventListener('click', function() {
-                document.getElementById('btn-sair').classList.toggle('hidden');
+                document.getElementById('btn-sair').classList.toggle('show');
             });
-
             // Ao clicar no botão Sair → ir para a rota logout
             document.getElementById('btn-sair').addEventListener('click', function() {
                 window.location.href = "{{ url_for('logout') }}";
