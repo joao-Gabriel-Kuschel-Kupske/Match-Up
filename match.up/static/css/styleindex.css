@@ -552,3 +552,21 @@ h9{
     color: #7b4bff;
     font-weight: 600;
 }
+
+.destaque {animation: pulse 2s infinite;}
+@keyframes pulse {
+  0%, 100%{transform: scale(1);}
+  50%{transform: scale(1.1);}
+  cursor: pointer;
+}
+
+.plano-destaque {
+    border: 3px solid #2e73ff;
+    transform: scale(1.07);
+    background: #f7f7f7;
+    width: 280px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
