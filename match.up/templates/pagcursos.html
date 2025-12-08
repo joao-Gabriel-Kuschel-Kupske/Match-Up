@@ -82,6 +82,22 @@
                 </a>
             {% endfor %} -->
         
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const btns = document.querySelectorAll(".btn-to-class");
+
+                const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    observer.unobserve(entry.target);
+                    }
+                });
+                }, { threshold: 0.1 });
+
+                btns.forEach(plano => observer.observe(plano));
+            });
+        </script>
     </body>
 </html>
 
