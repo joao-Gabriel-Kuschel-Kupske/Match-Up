@@ -15,7 +15,7 @@ html {
     --cor-borda: #02a7da;
 }
 body {
-    background-color: #C5C6FF;
+    background-color: #2b2b2b;
 }
 #borda {
     border-left: 4px solid var(--cor-borda);
@@ -215,4 +215,7 @@ footer p {
     height: 200vh;
     border: none !important;
     box-shadow: 0 0 8px #C5C6FF;
+}
+h3{
+    color: #ebebeb;
 }
