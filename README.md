@@ -1,4 +1,4 @@
-# 🧮 Match-Up
+# 🧮 Math-Up
 
 Um projeto que almeja mudar a matemática para os baixinhos.
 Nosso intuito é a promoção de uma educação com qualidade para alunos do 4° e 5° ano EF, tanto através de aulas lúdicas, divertidas e, principalmente, acessíveis aos alunos.
