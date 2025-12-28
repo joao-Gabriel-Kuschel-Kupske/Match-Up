@@ -258,6 +258,12 @@ h4{
   width: 120px;
   border-radius: 100%;
 }
+.our-pics {
+  transition: 0.3s;
+}
+.our-pics:hover {
+  transform: scale(1.05);
+}
 
 
 
@@ -364,7 +370,7 @@ h4{
     width: 60%;
     min-width:400px;
     min-height: 200px;
-    background-color: #ffffff62;
+    background-color: #ffffffcb;
     backdrop-filter: blur(10px);
     padding: 50px;
     border-radius: 10px;
@@ -454,7 +460,14 @@ h9{
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: 0.3s ease;
+    transition: transform 1.2s ease, opacity 1.2s ease;
+    transform: translateY(50px);
+    opacity: 0;
+}
+
+.plano.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .plano:hover {
@@ -553,11 +566,16 @@ h9{
     font-weight: 600;
 }
 
-.destaque {animation: pulse 2s infinite;}
+.destaque {
+  animation: pulse 2s infinite;
+}
 @keyframes pulse {
-  0%, 100%{transform: scale(1);}
-  50%{transform: scale(1.1);}
-  cursor: pointer;
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 .plano-destaque {

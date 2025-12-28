@@ -32,16 +32,26 @@ header a {
     text-align: center;
     background-color: rgb(131, 29, 29);
     color: white;
-    padding: 8px 12px;
     border-radius: 8px;
     border: none;
     cursor: pointer;
-    margin-top: 5px;
+
+    padding: 0;
+    margin-top: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    pointer-events: none;
 }
 
-/* Escondido por padrão */
-.hidden {
-    display: none;
+#btn-sair.show {
+    margin-top: 5px;
+    padding: 8px 12px;
+    max-height: 30px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 .logo2 {

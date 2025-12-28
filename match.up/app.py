@@ -2,7 +2,7 @@ import os
 import csv
 from datetime import datetime
 from uuid import uuid4
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, get_flashed_messages
 from flask_login import (
     LoginManager, UserMixin, login_user, login_required, current_user, logout_user
 )
@@ -71,8 +71,14 @@ def load_initial_users_from_csv():
                 reader = csv.reader(file)
                 next(reader, None)
                 for i, row in enumerate(reader, start=1):
-                    data_registro, nome, email, senha = row[0:4]
-                    foto_perfil = row[4] if len(row) > 4 else DEFAULT_PHOTO_PATH
+                    # CORREÇÃO CRÍTICA: Aplica .strip() para remover espaços em branco invisíveis
+                    if len(row) < 4:
+                        continue
+                        
+                    data_registro, nome, email, senha = [item.strip() for item in row[0:4]]
+                    
+                    foto_perfil = row[4].strip() if len(row) > 4 else DEFAULT_PHOTO_PATH
+                    
                     user_id = str(i)
                     USERS[user_id] = User(user_id, nome, email, senha, foto_perfil)
         except Exception as e:
@@ -188,6 +194,7 @@ def media_avaliacoes():
 def salvar_dados():
     """Processa o formulário de cadastro e salva o novo usuário no CSV."""
     try:
+        # Garante que os dados do formulário sejam salvos sem espaços
         nome = request.form.get('nome', '').strip()
         email = request.form.get('email', '').strip()
         senha = request.form.get('senha', '').strip()
@@ -195,10 +202,13 @@ def salvar_dados():
 
         if not nome or not email or not senha:
             flash("Todos os campos são obrigatórios.", 'error')
+            # Redireciona para a página de cadastro em caso de campos vazios
             return redirect(url_for('formulario'))
 
         if any(user.email.lower() == email.lower() for user in USERS.values()):
-            flash(f"O e-mail {email} já está cadastrado.", 'error')
+            # MUDANÇA AQUI: Mensagem mais clara para o usuário tentar o login
+            flash(f"O e-mail {email} já está cadastrado. Tente fazer login.", 'error')
+            # Redireciona para a página de cadastro, onde a mensagem será exibida
             return redirect(url_for('formulario'))
 
         ensure_csv_header()
@@ -207,16 +217,19 @@ def salvar_dados():
 
         with open(CSV_FILENAME, mode='a', newline='', encoding='utf-8') as file:
             writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            # Salva email e senha já "limpos" (com .strip())
             writer.writerow([data_registro, nome, email, senha, foto_perfil_default])
 
         load_initial_users_from_csv()
 
         flash("Cadastro realizado com sucesso! Faça login.", 'success')
+        # LINHA CORRETA: Redireciona para a página de login
         return redirect(url_for('formulario_login'))
 
     except Exception as e:
         print(f"ERRO ao salvar no CSV: {e}")
         flash(f"Ocorreu um erro interno ao salvar seu cadastro.", 'error')
+        # Redireciona para a página de cadastro em caso de erro no servidor
         return redirect(url_for('formulario'))
 
 @app.route('/formulario_login', methods=['GET', 'POST'])
@@ -226,12 +239,15 @@ def formulario_login():
         return redirect(url_for('pagcursos'))
 
     if request.method == 'POST':
+        # Garante que os dados do formulário de login sejam limpos
         email_input = request.form.get('email', '').strip()
         senha_input = request.form.get('senha', '').strip()
 
+        # O USERS agora contém dados limpos do CSV
         user_found = next((user for user in USERS.values()
                             if user.email.lower() == email_input.lower()), None)
-
+        
+        # A comparação agora deve ser bem-sucedida, pois ambos os lados estão limpos
         if user_found and user_found.password == senha_input:
             login_user(user_found)
             next_page = request.args.get('next')
@@ -302,14 +318,18 @@ def update_user_in_csv(old_email, new_nome, new_email, new_password, new_foto_pe
     updated = False
 
     for user_data in all_users:
-        if user_data['email'].lower() == old_email.lower():
+        # Garante a comparação correta do email
+        if user_data.get('email', '').strip().lower() == old_email.lower():
+            
+            # Validação para garantir que o novo email não está em uso por outro usuário
             if new_email.lower() != old_email.lower() and any(
-                u['email'].lower() == new_email.lower() for u in all_users if u['email'].lower() != old_email.lower()
+                u.get('email', '').strip().lower() == new_email.lower() for u in all_users if u.get('email', '').strip().lower() != old_email.lower()
             ):
                 return False, "O novo e-mail já está em uso por outro usuário."
 
             user_data['nome'] = new_nome
             user_data['email'] = new_email
+            # A senha é salva "limpa" (sem hash, conforme o design do seu código)
             user_data['senha'] = new_password if new_password else user_data['senha']
             user_data['foto_perfil'] = new_foto_perfil
             updated = True
